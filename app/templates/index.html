@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block stylesheet %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+{% block title %}starjar{% endblock %}
+{% block body %}
+  {{ super() }}
+  <div class="ui vertical masthead center aligned segment">
+      <div class="ui text container">
+        <h1 class="ui header">
+          Investing made simple.
+        </h1>
+        <h2>Starjar creates advanced investing strategies that out perform the market.</h2>
+        <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+      </div>  
+  </div>
+{% endblock %}

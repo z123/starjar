@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/reset.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/site.min.css">
+
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/container.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/grid.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/header.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/image.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/menu.min.css">
+
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/divider.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/dropdown.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/segment.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/button.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/list.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/icon.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/sidebar.min.css">
+    <link rel="stylesheet" type="text/min.css" href="//oss.maxcdn.com/semantic-ui/2.0.8/components/transition.min.css">
+
+    {% block stylesheet %}
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layout.css') }}">
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <div class="ui fixed menu">
+      <div class="ui container">
+        <div href="#" class="header item">starjar</div>
+        <a href="#" class="item">How it works</a>
+        <a href="#" class="item">Strategies</a>
+        <div class="right item">
+          <a class="ui button">Log in</a>
+        </div>
+      </div>
+    </div>
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>

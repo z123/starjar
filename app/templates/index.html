@@ -1,17 +1,61 @@
 {% extends "layout.html" %}
 {% block stylesheet %}
+  {{ super() }}
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
 {% endblock %}
 {% block title %}starjar{% endblock %}
 {% block body %}
   {{ super() }}
   <div class="ui vertical masthead center aligned segment">
-      <div class="ui text container">
-        <h1 class="ui header">
-          Investing made simple.
-        </h1>
-        <h2>Starjar creates advanced investing strategies that out perform the market.</h2>
-        <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
-      </div>  
+    <div class="ui text container">
+    <h1 class="ui header">
+      Investing made simple.
+    </h1>
+    <h2>Starjar creates advanced investing strategies that out perform the market.</h2>
+    <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+    </div>  
   </div>
+
+  <div class="ui vertical center aligned segment">
+    <div class="ui text container">
+    <h1 id="how-it-works" class="ui header">How it works</h1>
+    <h2 class="ui header">Step 1</h2>
+    <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+    <h2 class="ui header">Step 2</h2>
+    <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+    <h2 class="ui header">Step 3</h2>
+    <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+    <a class="ui huge button">Get Started Mofos</a>
+    </div>
+  </div>
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sitemap</a>
+            <a href="#" class="item">Contact Us</a>
+            <a href="#" class="item">Religious Ceremonies</a>
+            <a href="#" class="item">Gazebo Plans</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Banana Pre-Order</a>
+            <a href="#" class="item">DNA FAQ</a>
+            <a href="#" class="item">How To Access</a>
+            <a href="#" class="item">Favorite X-Men</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

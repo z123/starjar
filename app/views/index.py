@@ -6,4 +6,6 @@ from app import app
 def index():
     return render_template('index.html')
 
-
+@app.route('/strategies')
+def strategies():
+    return render_template('strategies.html')

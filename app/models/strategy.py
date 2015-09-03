@@ -7,7 +7,7 @@ class Strategy(db.Model):
     name = db.Column(db.String(128))
     description = db.Column(db.String)
     quantopian_url = db.Column(db.String)
-    price_history = db.relationship('PriceHistory', lazy='dynamic')
+    price_history = db.relationship('PriceHistory', lazy=True)
 
     def __init__(self, name, description, quantopian_url):
         self.name = name

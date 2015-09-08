@@ -10,7 +10,7 @@ app.config.from_pyfile('config.py')
 db = SQLAlchemy(app)
 
 # Views
-from app.views import index 
+from app.views import home 
 
 # Models
 from app.models import strategy

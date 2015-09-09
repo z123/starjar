@@ -43,16 +43,16 @@
   <body>
     <div class="ui fixed borderless menu">
       <div class="ui container">
-        <div href="{{ url_for('home') }}" class="item"><h1>starjar</h1></div>
+        <div href="{{ url_for('page.home') }}" class="item"><h1>starjar</h1></div>
 
-        <a href="{{ url_for('home') }}#how-it-works" class="item">How it works</a>
+        <a href="{{ url_for('page.home') }}#how-it-works" class="item">How it works</a>
         <a href="{{ url_for('strategies') }}" class="item">Strategies</a>
         <a href="#" class="item">FAQ</a>
 
         <div class="right menu">
           <div class="item">
             <div id="login-button" class="ui button">Log in</div>
-            <div class="ui button">Sign Up</div>
+            <a href="{{ url_for('strategies') }}" class="ui button">Sign Up</a>
           </div>
         </div>
       </div>

@@ -14,7 +14,10 @@ db = SQLAlchemy(app)
 
 # Views
 from .views.page import page
+from .views.strategy import strategy
+
 app.register_blueprint(page)
+app.register_blueprint(strategy)
 
 # Models
 from app.models import strategy, user

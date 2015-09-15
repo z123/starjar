@@ -10,4 +10,3 @@ def strategies():
 def strategy_details(strategy_name):
     # TODO Pass in strat info
     return render_template('strategy-details.html')
-

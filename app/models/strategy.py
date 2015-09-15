@@ -25,7 +25,7 @@ class Returns(db.Model):
     date = db.Column(db.DateTime)
 
     # Can't use 'return' maybe I should change this
-    # it seems dangerous.
+    # it seems dangerous. But im too ocd on naming variables.
     return_ = db.Column('return', db.Float)
 
 

@@ -1,6 +1,7 @@
 from app import db
+from app.util.sqlalchemy_util import ResourceMixin
 
-class Strategy(db.Model):
+class Strategy(ResourceMixin, db.Model):
     __tablename__ = 'strategies'
 
     id = db.Column('strategy_id', db.Integer, primary_key=True)

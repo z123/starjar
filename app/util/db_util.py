@@ -1,5 +1,5 @@
-from app.models.strategy import Strategy
 from app import db
+from app.models.strategy import Strategy
 
 
 def create_strategies():
@@ -16,6 +16,9 @@ def seed():
     create_strategies()
 
 def reset():
-    pass
+    db.reflect()
+    db.drop_all()
+    db.create_all()
+    seed()
 
     

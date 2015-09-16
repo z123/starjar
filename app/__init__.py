@@ -13,8 +13,8 @@ bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 
 # Views
-from .views.page import page
-from .views.strategy import strategy
+from app.views.page import page
+from app.views.strategy import strategy
 
 app.register_blueprint(page)
 app.register_blueprint(strategy)

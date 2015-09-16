@@ -1,7 +1,8 @@
 from app import bcrypt, db
 from sqlalchemy.ext.hybrid import hybrid_property
+from app.util.sqlalchemy_util import ResourceMixin
 
-class User(db.Model):
+class User(ResourceMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column('user_id', db.Integer, primary_key=True)
     email_address = db.Column(db.String(64), unique=True)

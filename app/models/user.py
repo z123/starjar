@@ -1,6 +1,6 @@
 from app import bcrypt, db
 from sqlalchemy.ext.hybrid import hybrid_property
-from app.util.sqlalchemy_util import ResourceMixin
+from app.utils.sqlalchemy_util import ResourceMixin
 
 class User(ResourceMixin, db.Model):
     __tablename__ = 'users'

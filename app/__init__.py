@@ -21,3 +21,6 @@ app.register_blueprint(strategy)
 
 # Models
 from app.models import strategy, user
+
+# Filters
+from app.utils import filters

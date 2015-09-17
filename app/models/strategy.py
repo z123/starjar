@@ -1,5 +1,5 @@
 from app import db
-from app.util.sqlalchemy_util import ResourceMixin
+from app.utils.sqlalchemy_util import ResourceMixin
 
 class Strategy(ResourceMixin, db.Model):
     __tablename__ = 'strategies'

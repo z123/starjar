@@ -14,7 +14,7 @@
     <h2>Strategies</h2>
     {% for strat in strats %}
       <a href="{{ url_for('strategy.strategy_details',
-                          strategy_name=strat.name) }}">{{ strat.name }}</a>
+                          strategy_name=strat.name|dashify) }}">{{ strat.name }}</a>
     {% endfor %}
   </div>
 {% endblock %}

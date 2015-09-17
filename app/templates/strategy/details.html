@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/strategies.css') }}">
+{% endblock %}
+
+{% block title %}starjar{% endblock %}
+
+{% block body %}
+  {{ super() }}
+
+  <div id="strategies" class="ui container">
+      <h2>{{ strat.name }}</h2>
+      <div class="ui button">Subscribe</div>
+  </div>
+{% endblock %}

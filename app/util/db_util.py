@@ -16,9 +16,8 @@ def seed():
     create_strategies()
 
 def reset():
-    db.reflect()
     db.drop_all()
     db.create_all()
     seed()
 
-    
+

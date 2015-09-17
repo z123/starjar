@@ -8,7 +8,7 @@ class Strategy(ResourceMixin, db.Model):
     name = db.Column(db.String(128))
     description = db.Column(db.String)
     quantopian_url = db.Column(db.String)
-    returns = db.relationship('returns', lazy=True)
+    returns = db.relationship('Returns', lazy=True)
 
     def __init__(self, name, description, quantopian_url):
         self.name = name
@@ -26,7 +26,7 @@ class Returns(db.Model):
     date = db.Column(db.DateTime)
 
     # Can't use 'return' maybe I should change this
-    # it seems dangerous. But im too ocd on naming variables.
+    # it seems dangerous. But I'm too ocd on naming variables.
     return_ = db.Column('return', db.Float)
 
 

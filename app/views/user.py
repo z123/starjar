@@ -7,3 +7,7 @@ user = Blueprint('user', __name__)
 @user.route('/login', methods=['GET', 'POST'])
 def login():
     pass
+
+@user.route('/signup', methods=['GET', 'POST'])
+def signup():
+    pass

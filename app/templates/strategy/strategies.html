@@ -10,7 +10,7 @@
 {% block body %}
   {{ super() }}
 
-  <div id="strategies" class="ui container">
+  <div id="strategies">
     <h2>Strategies</h2>
     {% for strat in strats %}
       <a href="{{ url_for('strategy.strategy_details',

@@ -8,15 +8,18 @@ class Strategy(ResourceMixin, db.Model):
     name = db.Column(db.String(128))
     description = db.Column(db.String)
     quantopian_url = db.Column(db.String)
-    returns = db.relationship('Returns', lazy=True)
+    returns = db.relationship('Returns', backref='strategy', lazy=True)
+
+    # Billing
+    plan_id = db.Column(db.String(128))
 
 class Returns(db.Model):
     __tablename__ = 'returns'
 
+    id = db.Column(db.Integer, primary_key=True)
     strategy_id = db.Column('strategy_id',
                             db.Integer,
-                            db.ForeignKey('strategies.id'),
-                            primary_key=True)
+                            db.ForeignKey('strategies.id'))
     date = db.Column(db.DateTime)
 
     # Can't use 'return' maybe I should change this

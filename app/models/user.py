@@ -4,6 +4,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from flask_login import UserMixin
 
 from app import bcrypt, db
+from app.models.subscription import Subscription
 from app.utils.sqlalchemy_util import ResourceMixin
 
 class User(UserMixin, ResourceMixin, db.Model):
@@ -19,6 +20,13 @@ class User(UserMixin, ResourceMixin, db.Model):
     _password = db.Column('password', db.String(128))
     role = db.Column(db.Enum(*ROLE, name='role_types'),
                      nullable=False, server_default='member')
+
+    # Relationships
+    subscriptions = db.relationship(Subscription, backref='users', passive_deletes=True)
+
+    # Billing
+    customer_id = db.Column(db.String(128))
+
 
     @hybrid_property
     def password(self):

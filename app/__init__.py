@@ -20,6 +20,13 @@ login_manager.login_view = 'user.login'
 def load_user(userid):
     return User.query.filter(User.id==userid).first()
 
+import braintree
+
+braintree.Configuration.configure(braintree.Environment.Sandbox,
+                                  merchant_id=app.config.get('BT_MERCHANT_ID'),
+                                  public_key=app.config.get('BT_PUBLIC_KEY'),
+                                  private_key=app.config.get('BT_PRIVATE_KEY'))
+
 # Views
 from app.views.page import page
 from app.views.strategy import strategy

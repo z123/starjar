@@ -40,9 +40,8 @@ def signup():
 
         if login_user(u):
             flash('Awesome, thanks for signing up!', 'success')
-            next_ = request.args.get('next')
-            return redirect(next_ or url_for('page.home'))
+            return redirect(url_for('page.home'))
 
     return render_template('user/signup.html', form=form)
 
-    
+

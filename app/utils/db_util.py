@@ -16,7 +16,8 @@ def create_strategies():
     params = {
         'name': "The banana sunde",
         'description': "This strategy rocks",
-        'quantopian_url': "http://www.quantopian.com"
+        'quantopian_url': "http://www.quantopian.com",
+        'plan_id': "the-banana-sunde"
     }
 
     return Strategy(**params).save()

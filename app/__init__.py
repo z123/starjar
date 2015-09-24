@@ -14,7 +14,7 @@ bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 
 login_manager = LoginManager(app)
-login_manager.login_view = 'user.signup'
+login_manager.login_view = 'user.login'
 
 @login_manager.user_loader
 def load_user(userid):

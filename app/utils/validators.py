@@ -4,6 +4,7 @@ class Unique(object):
     def __init__(self, column, message="This element already exists."):
         self.column = column 
         self.model = column.class_
+        self.message = message
 
     def __call__(self, form, field):
         check = self.model.query.filter(self.column == field.data).first()

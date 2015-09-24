@@ -14,7 +14,7 @@ bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 
 login_manager = LoginManager(app)
-login_manager.login_view = 'user.login'
+login_manager.login_view = 'user.signup'
 
 @login_manager.user_loader
 def load_user(userid):
@@ -31,10 +31,12 @@ braintree.Configuration.configure(braintree.Environment.Sandbox,
 from app.views.page import page
 from app.views.strategy import strategy
 from app.views.user import user
+from app.views.billing import billing
 
 app.register_blueprint(page)
 app.register_blueprint(strategy)
 app.register_blueprint(user)
+app.register_blueprint(billing)
 
 # Models
 from app.models.user import User

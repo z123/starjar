@@ -14,5 +14,6 @@ def strategy_details(strategy_name):
     # TODO This might be an inefficent query, can probably make it faster?
     # Maybe we cache the query in strategies function
     strategy_name = strategy_name.replace('-', ' ')
-    strat = Strategy.query.filter_by(name=strategy_name).first()
+    # inEfficent query?
+    strat = Strategy.query.filter(Strategy.name.ilike(strategy_name)).first()
     return render_template('strategy/details.html', strat=strat)

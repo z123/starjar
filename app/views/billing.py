@@ -8,7 +8,7 @@ from flask import (
 from flask_login import current_user, login_required
 import braintree
 
-billing = Blueprint('billing', __name__)
+billing = Blueprint('billing', __name__, prefix='/billing')
 
 @billing.route('/subscribe', methods=['GET', 'POST'])
 def subscribe():

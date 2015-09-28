@@ -1,21 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %}starjar{% endblock %}
-
 {% block body %}
   {{ super() }}
 
-  <form id="checkout" method="post" action="/checkout">
-    <div id="payment-form"></div>
-    <input type="submit" value="Pay $10">
+  <form id="checkout" method="post" action="{{ url_for('billing.subscribe') }}">
+    {% if form.errors %}
+      <ul class="list-unstyled text-danger field-error">
+        {% for error in form.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {{ form.credit_card.label }}: {{ form.credit_card(**{'data-braintree-name':'number'}) }}
+    {{ form.cvv.label }}: {{ form.cvv(**{'data-braintree-name':'cvv'}) }}
+    {{ form.expiration_date.label }}: {{ form.expiration_date(**{'data-braintree-name':'expiration_date'}) }}
+    {{ form.hidden_tag() }}
+    <input type="submit" value="Pay bitch">
   </form>
 
   <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
   <script>
     var clientToken = "{{ token }}";
 
-    braintree.setup(clientToken, "dropin", {
-      container: "payment-form"
+    braintree.setup(clientToken, "custom", {
+      id: "checkout"
     });
   </script>
 

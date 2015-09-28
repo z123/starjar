@@ -18,7 +18,7 @@ class Subscription(ResourceMixin, db.Model):
     subscription_id = db.Column(db.String(128))
     payment_method_token = db.Column(db.String(128))
 
-    def create(self, user=None, plan_id=None, token=None):
+    def create(self, user=None, plan_id=None, payment_method_nonce=None):
         """
         Create a recurring subscription.
         :param user: User to apply the subscription to
@@ -33,37 +33,34 @@ class Subscription(ResourceMixin, db.Model):
         :type token: str
         :return: bool
         """
+        
+        # Create the user account if none exists.
+        if user.customer_id is None:
+            result = braintree.Customer.create()
+            if result.is_success:
+                user.customer_id = result.customer.id
+            else:
+                return False
 
-        if token is None:
+        # Create the payment method
+        result = braintree.PaymentMethod.create({
+            'customer_id': user.customer_id,
+            'payment_method_nonce': payment_method_nonce,
+            'options': {
+                'verify_card': True
+            }
+        })
+
+        if result.is_success:
+            self.payment_method_token = result.payment_method_token
+        else:
             return False
-
-        if coupon:
-            self.coupon = coupon.upper()
-
-        customer = PaymentSubscription.create(token=token,
-                                              plan=plan,
-                                              coupon=self.coupon)
-
-        # Update the user account.
-        user.payment_id = customer.id
-        user.name = name
-        user.cancelled_subscription_on = None
-
+        
         # Set the subscription details.
         self.user_id = user.id
-        self.plan = plan
-
-        # Redeem the coupon.
-        if coupon:
-            coupon = Coupon.query.filter(Coupon.code == self.coupon).first()
-            coupon.redeem()
-
-        # Create the credit card.
-        credit_card = CreditCard(user_id=user.id,
-                                 **CreditCard.extract_card_params(customer))
+        self.plan_id = plan_id
 
         db.session.add(user)
-        db.session.add(credit_card)
         db.session.add(self)
 
         db.session.commit()

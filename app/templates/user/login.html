@@ -19,8 +19,7 @@
         {{ form.email.label }}: {{ form.email(placeholder='yourname@email.com') }}
         <br>
         {{ form.password.label }}: {{ form.password }}
-        <br>
-        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
         <br>
         <button type="submit" class="btn btn-primary btn-block">Register</button>
       </form>

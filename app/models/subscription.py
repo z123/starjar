@@ -33,14 +33,18 @@ class Subscription(ResourceMixin, db.Model):
         :type token: str
         :return: bool
         """
-        
+
+        # Set the subscription details.
+        self.user_id = user.id
+        self.plan_id = plan_id
+
         # Create the user account if none exists.
         if user.customer_id is None:
             result = braintree.Customer.create()
             if result.is_success:
                 user.customer_id = result.customer.id
             else:
-                return False
+                return result
 
         # Create the payment method
         result = braintree.PaymentMethod.create({
@@ -52,18 +56,30 @@ class Subscription(ResourceMixin, db.Model):
         })
 
         if result.is_success:
-            self.payment_method_token = result.payment_method_token
+            self.payment_method_token = result.payment_method.token
         else:
-            return False
-        
-        # Set the subscription details.
-        self.user_id = user.id
-        self.plan_id = plan_id
+            return result
 
+        # Create subscription
+        result = braintree.Subscription.create({
+            'payment_method_token': self.payment_method_token,
+            'plan_id': plan_id
+        })
+
+        if result.is_success:
+            self.subscription_id = result.subscription.id
+        else:
+            return result
+       
+        # Commit to database
         db.session.add(user)
         db.session.add(self)
 
         db.session.commit()
 
-        return True
+        return result
+
+    def is_active(self):
+        subscription = braintree.Subscription.find(self.subscription_id)
+        return subscription = braintree.Subscription.status.Active
 

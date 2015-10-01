@@ -25,7 +25,7 @@ def subscribe():
         # Create Subscription
         subscription = Subscription()
         created = subscription.create(current_user, plan_id, nonce)
-        if created:
+        if created.is_success:
             return redirect(url_for('billing.confirmation'))
 
     token = braintree.ClientToken.generate()

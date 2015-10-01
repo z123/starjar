@@ -12,11 +12,12 @@
       </ul>
     {% endif %}
 
-    {{ form.credit_card.label }}: {{ form.credit_card(**{'data-braintree-name':'number'}) }}
-    {{ form.cvv.label }}: {{ form.cvv(**{'data-braintree-name':'cvv'}) }}
-    {{ form.expiration_date.label }}: {{ form.expiration_date(**{'data-braintree-name':'expiration_date'}) }}
+    <input data-braintree-name="number">
+    <input data-braintree-name="cvv">
+    <input data-braintree-name="expiration_date">
+
     {{ form.hidden_tag() }}
-    <input type="submit" value="Pay bitch">
+    <input type="submit" value="Pay now">
   </form>
 
   <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
@@ -24,7 +25,10 @@
     var clientToken = "{{ token }}";
 
     braintree.setup(clientToken, "custom", {
-      id: "checkout"
+      id: "checkout",
+      onError: function (err) {
+        alert(err);
+      }
     });
   </script>
 

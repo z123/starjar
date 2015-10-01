@@ -3,7 +3,7 @@
 {% block body %}
   {{ super() }}
 
-  <form id="checkout" method="post" action="{{ url_for('billing.subscribe') }}">
+  <form id="credit-card-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
     {% if form.errors %}
       <ul class="list-unstyled text-danger field-error">
         {% for error in form.errors %}
@@ -20,15 +20,23 @@
     <input type="submit" value="Pay now">
   </form>
 
+  <form id="paypal-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
+    {{ form.hidden_tag() }}
+  </form>
+
   <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
   <script>
     var clientToken = "{{ token }}";
 
     braintree.setup(clientToken, "custom", {
-      id: "checkout",
+      id: "credit-card-checkout",
       onError: function (err) {
         alert(err);
       }
+    });
+
+    braintree.setup(clientToken, "paypal", {
+      container: "paypal-checkout"
     });
   </script>
 

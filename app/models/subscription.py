@@ -70,7 +70,7 @@ class Subscription(ResourceMixin, db.Model):
             self.subscription_id = result.subscription.id
         else:
             return result
-       
+
         # Commit to database
         db.session.add(user)
         db.session.add(self)
@@ -81,5 +81,5 @@ class Subscription(ResourceMixin, db.Model):
 
     def is_active(self):
         subscription = braintree.Subscription.find(self.subscription_id)
-        return subscription = braintree.Subscription.status.Active
+        return subscription == braintree.Subscription.status.Active
 

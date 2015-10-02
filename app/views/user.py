@@ -44,4 +44,6 @@ def signup():
 
     return render_template('user/signup.html', form=form)
 
-
+@user.route('/dashboard')
+def dashboard():
+    return render_template('user/dashboard.html')

@@ -35,4 +35,7 @@ def subscribe():
 def confirmation():
     return render_template('billing/confirmation.html')
 
+@billing.route('/cancel', methods=['GET', 'POST'])
+def cancel():
+    pass
 

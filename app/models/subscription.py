@@ -80,6 +80,8 @@ class Subscription(ResourceMixin, db.Model):
         return result
 
     def is_active(self):
+        # TODO: Better to use webhooks rather than querying braintree
+        # everytime. Implement sometime in the future.
         subscription = braintree.Subscription.find(self.subscription_id)
         return subscription == braintree.Subscription.status.Active
 

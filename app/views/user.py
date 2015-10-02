@@ -44,6 +44,14 @@ def signup():
 
     return render_template('user/signup.html', form=form)
 
+@user.route('/logout')
+def logout():
+    pass
+
+@user.route('/subscriptions')
+def subscriptions():
+    pass
+
 @user.route('/dashboard')
 def dashboard():
     return render_template('user/dashboard.html')

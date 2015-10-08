@@ -5,7 +5,7 @@ from flask import (
     redirect,
     request,
     render_template)
-from flask_login import login_user
+from flask_login import login_user, login_required, logout_user
 from app.models.user import User
 from app.forms.user import LoginForm, SignupForm
 
@@ -20,7 +20,7 @@ def login():
 
         if u and u.is_correct_password(form.password.data):
             login_user(u)
-            return redirect(url_for('page.home'))
+            return redirect(url_for('user.subscriptions'))
         else:
             flash('Email or password is incorrect.', 'error')
 
@@ -45,13 +45,13 @@ def signup():
     return render_template('user/signup.html', form=form)
 
 @user.route('/logout')
+@login_required
 def logout():
-    pass
+    logout_user()
+    return redirect(url_for('page.home'))
 
 @user.route('/subscriptions')
+@login_required
 def subscriptions():
-    pass
-
-@user.route('/dashboard')
-def dashboard():
-    return render_template('user/dashboard.html')
+    # TODO: Logic for getting subscriptions
+    return render_template('user/subscriptions.html')

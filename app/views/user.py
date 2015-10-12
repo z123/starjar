@@ -7,7 +7,7 @@ from flask import (
     render_template)
 from flask_login import login_user, login_required, logout_user
 from app.models.user import User
-from app.forms.user import LoginForm, SignupForm
+from app.forms.user import LoginForm, SignupForm, EmailForm
 
 user = Blueprint('user', __name__)
 
@@ -55,3 +55,18 @@ def logout():
 def subscriptions():
     # TODO: Logic for getting subscriptions
     return render_template('user/subscriptions.html')
+
+@user.route('/reset-password', methods=['GET', 'POST'])
+def password_reset():
+    form = EmailForm()
+
+    if form.validate_on_submit():
+        u = User.query.filter_by(email=form.email.data).first()
+        # TODO: Verify user exists and send Email
+
+    return render_template('user/reset_password.html')
+
+@user.route('/reset-password/<token>')
+def reset_password_with_token():
+    # TODO: Insert resetting logic
+    return render_template('user/reset_password_with_token.html')

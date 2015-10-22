@@ -1,0 +1,29 @@
+{
+  "name": "starjar",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://z123@bitbucket.org/z123/starjar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/z123/starjar#readme",
+  "devDependencies": {
+    "webpack": "^1.12.2"
+  },
+  "dependencies": {
+    "css-loader": "^0.21.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "file-loader": "^0.8.4",
+    "node-sass": "^3.3.3",
+    "sass-loader": "^3.0.0",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6"
+  }
+}

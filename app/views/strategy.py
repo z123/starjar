@@ -9,7 +9,7 @@ def strategies():
     strats = Strategy.query.all()
     return render_template('strategy/strategies.html', strats=strats)
 
-@strategy.route('/strategies/<strategy_name>')
+@strategy.route('/strategy/<strategy_name>')
 def strategy_details(strategy_name):
     # TODO This might be an inefficent query, can probably make it faster?
     # Maybe we cache the query in strategies function

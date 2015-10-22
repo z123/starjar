@@ -13,6 +13,7 @@ from app.models.subscription import Subscription
 
 billing = Blueprint('billing', __name__, url_prefix='/billing')
 
+# TODO: Path should be /subscribe/<strategy_name> or the plan_id 
 @billing.route('/subscribe', methods=['GET', 'POST'])
 @login_required
 def subscribe():

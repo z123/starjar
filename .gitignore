@@ -10,6 +10,7 @@ eggs/
 parts/
 sdist/
 var/
+public/
 npm-debug.log
 *.egg-info/
 .installed.cfg

@@ -1,0 +1,43 @@
+.navbar {
+  background-color: #FFF;
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+  height: 60px;
+}
+
+.navbar-default .navbar-brand {
+  font-family: OpenSans;
+  font-size: 28px;
+  color: #000000;
+  line-height: 25px;
+}
+
+.nav.navbar-nav.navbar-left > li > a {
+  font-family: OpenSans-Light;
+  font-size: 16px;
+  color: #000000;
+  line-height: 30px;
+}
+
+a.btn.btn-default.navbar-btn {
+  font-family: Lato-Bold;
+  font-size: 14px;
+  color: rgba(0,0,0,0.60);
+  height: 30px;
+  width: 80px;
+  margin-top: 15px;
+  line-height: 0px;
+  border-radius: 4px;
+  border: none;
+  background: #E0E1E2;
+  &:hover {
+    background: #C4C4C4;
+  }
+  
+  &:active {
+    box-shadow: none;
+  }
+}
+
+#login-button {
+  margin-right: 15px;
+}

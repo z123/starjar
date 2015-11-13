@@ -9,10 +9,7 @@ var config = {
 
 gulp.task('css', function() {
   return gulp.src('./app/static/css/app.scss')
-  .pipe(sass({
-    includePaths: [config.bootstrapDir + '/assets/stylesheets',
-                   config.bootswatchDir],
-  }))
+  .pipe(sass())
   .pipe(gulp.dest(config.publicDir + '/css'));
 });
 
@@ -22,7 +19,6 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('js', function() {
-  // TODO: Put bootstrap js in here to?
   return gulp.src(['./app/static/js/app.js'])
 });
 
@@ -31,4 +27,5 @@ gulp.task('default', ['css', 'fonts', 'js']);
 gulp.watch('./app/static/css/**/*.scss', ['css'])
   .on('change', function (event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');       
-});
+  }
+);

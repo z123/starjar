@@ -1,3 +1,6 @@
+// TODO: Change so contents of navbar dont go verticle when screen gets smaller.
+// This can be sloved by giving the container a fixed width.
+
 .navbar {
   background-color: #FFF;
   box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
@@ -40,4 +43,27 @@ a.btn.btn-default.navbar-btn {
 
 #login-button {
   margin-right: 15px;
+}
+
+.footer {
+  background: #EDEFF1;  
+  height: 104px;
+  display: flex;
+  align-items: center;
+  font-family: Lato-Bold;
+  color: #5A5A5A;
+  font-size: 14px;
+
+  a {
+    color: inherit;
+  }
+
+  li {
+    margin-right: 25px;
+  }
+
+  .logo {
+    font-family: Lato-Regular;
+    font-size: 28px;
+  }
 }

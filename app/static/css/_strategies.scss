@@ -1,0 +1,72 @@
+
+#strategies {
+  margin-top: 100px;
+  padding-bottom: 60px;
+
+  h1 {
+    font-family: OpenSans;
+    font-size: 24px;
+  }
+
+  .col-md-4 {
+    margin-top: 20px;
+  }
+
+  .plans {
+    background: #EFF0F2;
+    border-radius: 6px;
+    width: 229px;
+    height: 319px;
+    margin-right: 20px;
+
+    h1 {
+      font-family: Lato-Bold;
+      font-size: 20px;
+      color: #34495E;
+      padding-top: 20px;
+    }
+
+    div:nth-of-type(1) {
+      font-family: Lato-Bold;
+      font-size: 48px;
+      color: #34495E;
+      padding-top: 20px;
+      line-height: 50px;
+    }
+
+    div:nth-of-type(2) {
+      font-family: Lato-Bold;
+      font-size: 18px;
+      color: #34495E;
+    }
+    
+    div:nth-of-type(3) {
+      font-family: Lato-Regular;
+      font-size: 18px;
+      color: #34495E;
+      padding-top: 20px;
+    }
+
+    > a {
+      font-family: Lato-Regular;
+      font-size: 18px;
+      color: #34495E;
+      text-decoration: underline;
+      display: block;
+      padding-top: 20px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      font-family: Lato-Bold;
+      font-size: 18px;
+      line-height: 20px;
+      color: #FFF;
+      width: 170px;       
+      height: 35px;
+      background: #48C9B0;
+      border: none;
+    }
+     
+  }
+}

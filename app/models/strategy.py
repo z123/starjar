@@ -19,7 +19,8 @@ class Strategy(ResourceMixin, db.Model):
     # Billing
     plan_id = db.Column(db.String(128))
 
-class Returns(db.Model):
+# Using 'Return' seems dangerous. But I'm too ocd on naming.
+class Return(db.Model):
     __tablename__ = 'returns'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -28,8 +29,6 @@ class Returns(db.Model):
                             db.ForeignKey('strategies.id'))
     date = db.Column(db.DateTime)
 
-    # Can't use 'return' maybe I should change this
-    # it seems dangerous. But I'm too ocd on naming variables.
-    return_ = db.Column('return', db.Float)
+    gain = db.Column('gain', db.Float)
 
 

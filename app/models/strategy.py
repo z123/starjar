@@ -1,10 +1,10 @@
 from app import db
 from app.utils.sqlalchemy_util import ResourceMixin
 
-class StrategyStockLink(db.Tabel):
-    __tablename__ = 'strategy_stock_link'
+class StrategySecurityLink(db.Table):
+    __tablename__ = 'strategy_security_link'
     db.Column('strategy_id', db.Integer, db.ForeignKey('strategy.id')),
-    db.Column('stock_id', db.Integer, db.ForeignKey('stock.id')),
+    db.Column('security_id', db.Integer, db.ForeignKey('security.id')),
 
 class Strategy(ResourceMixin, db.Model):
     __tablename__ = 'strategies'

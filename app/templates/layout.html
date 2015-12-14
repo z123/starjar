@@ -1,41 +1,33 @@
 {# TODO: Need to change the structure of this html page #}
 {% extends 'base.html' %}
 {% block header %}
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url_for('page.home') }}">starjar</a>
-    </div>
-      <ul class="nav navbar-nav navbar-left">
-        <!--TODO: Fix this anchor tag-->
-        <li><a href="{{ url_for('page.home') }}#how-it-works">How it works</a></li>
-        <li><a href="{{ url_for('strategy.strategies') }}">Strategies</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {% if current_user.is_authenticated() %}
-          <li><a href="#">Subscriptions</a></li>
-          <li><a href="#">Settings</a></li>
-        {% else %}
-          <li><a class="btn btn-default navbar-btn" id="login-button">Log in</a></li>
-          <li><a class="btn btn-default navbar-btn">Sign up</a></li>
-        {% endif %}
-      </ul>
+<div class="navbar">
+  <div class="left">
+    <a class="logo" href="{{ url_for('page.home') }}">starjar</a>
+    <!--TODO: Fix this anchor tag-->
+    <a class="item" href="{{ url_for('page.home') }}#how-it-works">How it works</a>
+    <a class="item" href="{{ url_for('strategy.strategies') }}">Strategies</a>
+    <a class="item" href="#">FAQ</a>
+    <a class="item" href="#">Blog</a>
   </div>
-</nav>
+  <div class="right">
+    {% if current_user.is_authenticated() %}
+      <a href="#">Subscriptions</a>
+      <a href="#">Settings</a>
+    {% else %}
+      <a class="btn">Log in</a>
+      <a class="btn">Sign up</a>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}
 {% block footer %}
-<footer class="footer">
-  <div class="container">
-    <ul class="list-inline">
-      <li class="logo">starjar</li>
-      <li><a href="#">About us</a></li>
-      <li><a href="#">FAQ</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-  </div>
-</footer>
+<div class="footer">
+  <div class="logo">starjar</div>
+  <a class="item" href="{{ url_for('page.about') }}">About Us</a>
+  <a class="item" href="#">FAQ</a>
+  <a class="item" href="#">Blog</a>
+  <a class="item" href="#">Contact Us</a>
+</div>
 {% endblock %}
 

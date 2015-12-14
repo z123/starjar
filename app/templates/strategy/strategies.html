@@ -9,28 +9,21 @@
 {% block body %}
   {{ super() }}
 
-  <div class="container" id="strategies">
+  <div id="strategies">
     <h1>Strategies</h1>
       <div class="row">
-        <div class="col-md-3">
-          <div class="plans text-center">
+          <div class="plan">
             <h1>{{ strats[0].name }}</h1>
             <div>13%</div>
             <div>Annual Return</div>
             <div>$30/month</div>
             <a href="{{ url_for('strategy.strategy_details',
                                 strategy_name=strats[0].name|dashify) }}">Details</a>
-            <div>
-              <a class="btn btn-default">Subscribe</a>
-            </div>
+            <a class="btn">Subscribe</a>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="plans text-center">
+          <div class="plan">
             <h1>More strategies coming soon!</h1>
           </div>
-        </div>
       </div>
-    </ul>
   </div>
 {% endblock %}

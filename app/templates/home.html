@@ -9,36 +9,40 @@
 {% block body %}
   {{ super() }}
 
-  <div class="container text-center" id="investing-made-simple">
+  <div id="investing-made-simple">
+    <div class="container">
       <h1>Investing made simple.</h1>
       <h2>Starjar creates advanced investing strategies that out perform the market.</h2>
-      <a class="btn btn-default">Get Started  <i class="fa fa-arrow-right"></i></a>
+      <a class="btn">Get Started  <i class="fa fa-arrow-right"></i></a>
+    </div>
   </div>
   <hr>
-  <div class="container text-center" id="how-it-works">
+  <div id="how-it-works">
     <h1>How it works</h1>
-    <div class="row text-left">
-      <div class="col-md-6">
+    <div class="container">
+      <div class="left">
         <h2>Step 1: Choose a strategy</h2>
         <p>Choose a strategy based on your risk tolerence and trading frequency. You can even subscribe
         to multiple strategies if you so desire.</p>
       </div>
-      <div class="col-md-6">
+      <div class="right">
         <h2>Step 2: Update your portfolio</h2>
         <p>Every month we email you with a list of stocks to buy and how much to allocate to each stock.</p>
       </div>
     </div>
-    <a class="btn btn-default">Pick a strategy<i class="fa fa-arrow-right"></i></a>
+    <a class="btn">Pick a strategy <i class="fa fa-arrow-right"></i></a>
   </div>
   <hr>
-  <div class="container text-center" id="why-us">
+  <div id="why-us">
     <h1>Why Us?</h1>
-    <ul class="text-left">
-      <li>We provide hedge fund level strategies but without the cost and requirements of an actually hedge fund.</li>
-      <li>Our strategies are rigoursly backtested to ensure they actually work.</li>
-      <li>Using an automated strategy keeps your emotions out of the
-      market. Just follow the strategy and you will win. We have hunderds of happy subscribers.</li>
-    </ul>
-    <a class="btn btn-default">Get Started  <i class="fa fa-arrow-right"></i></a>
+    <div class="container">
+      <ul>
+        <li>We provide hedge fund level strategies but without the cost and requirements of an actually hedge fund.</li>
+        <li>Our strategies are rigoursly backtested to ensure they actually work.</li>
+        <li>Using an automated strategy keeps your emotions out of the
+        market. Just follow the strategy and you will win. We have hunderds of happy subscribers.</li>
+      </ul>
+      <a class="btn">Get Started  <i class="fa fa-arrow-right"></i></a>
+    </div>
   </div>
 {% endblock %}

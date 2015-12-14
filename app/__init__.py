@@ -40,6 +40,8 @@ app.register_blueprint(billing)
 
 # Models
 from app.models.user import User
+from app.models.strategy import Return
+from app.models.security import Security
 from app.models.strategy import Strategy
 
 # Filters

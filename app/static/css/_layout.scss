@@ -1,6 +1,16 @@
 // TODO: Change so contents of navbar dont go verticle when screen gets smaller.
-// This can be sloved by giving the container a fixed width.
+// This can be sloved by using no wrap
 
+@import "button";
+@import "fonts";
+
+/* Global 
+-------------------------------------------------- */
+a {
+  &:hover {
+    cursor: pointer;
+  }
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -16,71 +26,90 @@ body {
 /* Custom page CSS
 -------------------------------------------------- */
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #FFF;
   box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
   height: 60px;
-}
 
-.navbar-default .navbar-brand {
-  font-family: OpenSans;
-  font-size: 28px;
-  color: #000000;
-  line-height: 25px;
-}
+  a {
+    text-decoration: none;
+  }
 
-.nav.navbar-nav.navbar-left > li > a {
-  font-family: OpenSans-Light;
-  font-size: 16px;
-  color: #000000;
-  line-height: 30px;
-}
-
-a.btn.btn-default.navbar-btn {
-  font-family: Lato-Bold;
-  font-size: 14px;
-  color: rgba(0,0,0,0.60);
-  height: 30px;
-  width: 80px;
-  margin-top: 15px;
-  line-height: 0px;
-  border-radius: 4px;
-  border: none;
-  background: #E0E1E2;
-  &:hover {
-    background: #C4C4C4;
+  .logo {
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
+    font-size: 28px;
+    color: #000000;
   }
   
-  &:active {
-    box-shadow: none;
-  }
-}
+  .left {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
 
-#login-button {
-  margin-right: 15px;
+    .item {
+      font-family: $open-sans;
+      font-weight: $open-sans-light;
+      font-size: 16px;
+      color: #000000;
+      margin-left: 30px;
+      margin-top: 5px;
+    } 
+  }
+
+  .right {
+    display: flex;
+    margin-right: 50px;
+    justify-content: space-between;
+
+    .btn {
+      @include button(80px, 30px);
+      font-family: $lato;
+      font-weight: $lato-bold;
+      font-size: 14px;
+      color: rgba(0,0,0,0.60);
+      background: #E0E1E2;
+      border-radius: 4px;
+    }
+
+    .btn + .btn {
+      margin-left: 20px;
+    }
+  }
 }
 
 .footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   height: 104px;
   background: #EDEFF1;  
   display: flex;
   align-items: center;
-  font-family: Lato-Bold;
   color: #5A5A5A;
-  font-size: 14px;
-
-  a {
-    color: inherit;
-  }
-
-  li {
-    margin-right: 25px;
-  }
 
   .logo {
-    font-family: Lato-Regular;
+    font-family: $lato;
+    font-weight: $lato-normal;
     font-size: 28px;
+    margin-left: 50px;
   }
+
+  .item {
+    color: inherit;
+    text-decoration: none;
+    margin-left: 30px;
+    font-family: $lato;
+    font-weight: $lato-bold;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
 }

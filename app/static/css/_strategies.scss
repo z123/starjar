@@ -1,72 +1,88 @@
+@import "button";
+@import "fonts";
 
 #strategies {
   margin-top: 100px;
+  margin-left: 40px;
   padding-bottom: 60px;
 
   h1 {
-    font-family: OpenSans;
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
     font-size: 24px;
   }
 
-  .col-md-4 {
-    margin-top: 20px;
+  .row {
+    display: flex;
+    padding-top: 20px;
   }
 
-  .plans {
+  .plan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     background: #EFF0F2;
     border-radius: 6px;
     width: 229px;
     height: 319px;
-    margin-right: 20px;
 
     h1 {
-      font-family: Lato-Bold;
+      font-family: $lato;
+      font-weight: $lato-bold;
       font-size: 20px;
       color: #34495E;
-      padding-top: 20px;
+      margin-top: 20px;
     }
 
     div:nth-of-type(1) {
-      font-family: Lato-Bold;
+      font-family: $lato;
+      font-weight: $lato-bold;
       font-size: 48px;
       color: #34495E;
-      padding-top: 20px;
       line-height: 50px;
+      margin-top: 20px;
     }
 
     div:nth-of-type(2) {
-      font-family: Lato-Bold;
+      font-family: $lato;
+      font-weight: $lato-bold;
       font-size: 18px;
       color: #34495E;
     }
     
     div:nth-of-type(3) {
-      font-family: Lato-Regular;
+      font-family: $lato;
+      font-weight: $lato-normal;
       font-size: 18px;
       color: #34495E;
-      padding-top: 20px;
+      margin-top: 20px;
     }
 
     > a {
-      font-family: Lato-Regular;
+      font-family: $lato;
+      font-weight: $lato-normal;
       font-size: 18px;
       color: #34495E;
-      text-decoration: underline;
       display: block;
-      padding-top: 20px;
+      margin-top: 20px;
     }
 
     .btn {
-      margin-top: 20px;
-      font-family: Lato-Bold;
+      @include button(170px, 35px);
+      font-family: $lato;
+      font-weight: $lato-bold;
       font-size: 18px;
-      line-height: 20px;
       color: #FFF;
-      width: 170px;       
-      height: 35px;
       background: #48C9B0;
       border: none;
+      border-radius: 4px;
+      margin-top: 25px;
+      margin-bottom: 13.4px;
     }
-     
+  }
+
+  .plan:not(:last-child) {
+    margin-right: 50px;
   }
 }

@@ -1,96 +1,127 @@
+@import "button";
+@import "fonts";
 
-%landing-page-defaults {
-
+@mixin section() {
   h1 {
-    font-family: OpenSans;
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
     font-size: 48px;
   }
 
   h2 {
-    font-family: OpenSans-Light;
+    font-family: $open-sans;
+    font-weight: $open-sans-light;
     font-size: 28px;
-    line-height: 40px;
   }
 
   .btn {
-    font-family: Lato-Bold;
+    font-family: $lato;
+    font-weight: $lato-bold;
     font-size: 18.94px;
     color: #FFF;
-    margin-top: 30px;
     border-radius: 4px;
     border: none;
-    padding-top: 11px;
   }
 
   .fa.fa-arrow-right {
     margin-left: 10px;
   }
 }
-  
-#investing-made-simple {
-  @extend %landing-page-defaults;
-  margin-top: 160px;
-  margin-bottom: 133px;
-  width: 850px;
 
-  .btn {
-    width: 185px;
-    height: 50px;
-    background: #2185D0;
+#investing-made-simple {
+  @include section()
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  height: 500px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    text-align: center;
+
+    .btn {
+        @include button(185px, 50px);
+        background: #2185D0;
+        margin-top: 20px;
+    }
+
+    h1 {
+      margin: 0 0 0 0;
+    }
   }
+  
 }
 
-// TODO: Make margin between step1 and step2 bigger?
 #how-it-works {
-  @extend %landing-page-defaults;
-  margin-top: 30px;
-  margin-bottom: 80px;
-  width: 1000px;
-
-  div.row {
-    margin-top: 20px;
-    margin-left: 5%;
-    /*div:nth-child(2) {*/
-      /*padding-left: 60px;*/
-    /*}*/
-  }
+  @include section()
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   p {
-    font-family: OpenSans-Light;
+    font-family: $open-sans;
+    font-weight: $open-sans-light;
     font-size: 18px;
-    display: flex;
   }
 
- .btn {
-    width: 185px;
-    height: 50px;
-    background: #417505;
-    margin-top: 50px;
-  }  
-}
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-#why-us {
-  @extend %landing-page-defaults;
-  width: 970px;
-  margin-top: 30px;
-  margin-bottom: 70px;
+    .left {
+      width: 380px;
+      height: 180px;
+    }
 
-  ul {
-    margin-top: 30px;
-    font-family: OpenSans-Light;
-    font-size: 24px;
-
-    li {
-      margin-bottom: 20px;
+    .right {
+      margin-left: 80px;
+      width: 380px;
+      height: 180px;
     }
   }
 
   .btn {
-    margin-top: 40px;
-    margin-bottom: 70px;
-    width: 185px;
-    height: 50px;
+    @include button(185px, 50px);
+    background: #417505;
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+}
+
+#why-us {
+  @include section()
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 900px;
+
+    ul {
+      font-family: $open-sans;
+      font-weight: $open-sans-light;
+      font-size: 24px;
+
+      li:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .btn {
+    @include button(185px, 50px);
     background: #2185D0;
+    margin-top: 30px;
+    margin-bottom: 70px;
   }
 
 }

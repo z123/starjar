@@ -1,10 +1,10 @@
 from app import db
 from app.utils.sqlalchemy_util import ResourceMixin
 
-class StrategySecurityLink(db.Table):
-    __tablename__ = 'strategy_security_link'
-    db.Column('strategy_id', db.Integer, db.ForeignKey('strategy.id')),
-    db.Column('security_id', db.Integer, db.ForeignKey('security.id')),
+strategy_security_link = db.Table('strategy_security_link',
+    db.Column('strategy_id', db.Integer, db.ForeignKey('strategies.id')),
+    db.Column('security_id', db.Integer, db.ForeignKey('securities.id')),
+)
 
 class Strategy(ResourceMixin, db.Model):
     __tablename__ = 'strategies'
@@ -13,8 +13,8 @@ class Strategy(ResourceMixin, db.Model):
     name = db.Column(db.String(128))
     description = db.Column(db.String)
     quantopian_url = db.Column(db.String)
-    returns = db.relationship('Returns', backref='strategy', lazy=True)
-    positions = db.relationship('Stock', lazy=True, secondary='StrategyStockLink')
+    returns = db.relationship('Return', backref='strategy', lazy=True)
+    positions = db.relationship('Security', lazy=True, secondary='strategy_security_link')
 
     # Billing
     plan_id = db.Column(db.String(128))

@@ -1,0 +1,8 @@
+
+@mixin button($width, $height) {
+  width: $width;
+  height: $height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

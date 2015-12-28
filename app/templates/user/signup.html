@@ -1,29 +1,24 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
 
-{% block title %}Sign up{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block body %}
-  <div class="row">
-    <div class="col-md-5 col-md-push-1 col-md-offset-1 well">
-    <html>
-    <head>
-      <form action="{{ url_for('user.signup') }}" method="post">
-        {% if form.email.errors %}
-          <ul class="list-unstyled text-danger field-error">
-            {% for error in form.email.errors %}
-              <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+  <div id="signup">
+    <form action="{{ url_for('user.signup') }}" method="post">
+      <h1>Sign Up</h1>
+      {% if form.errors %}
+        <ul class="field-error">
+          {% for error in form.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
-        {{ form.email.label }}: {{ form.email(placeholder='yourname@email.com') }}
-        <br>
-        {{ form.password.label }}: {{ form.password }}
-        <br>
-        {{ form.csrf_token }}
-        <br>
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
-      </form>
-    </div>
+      {{ form.email(placeholder='Email Address') }}
+      {{ form.password(placeholder='Password') }}
+      {{ form.hidden_tag() }}
+      <button type="submit" class="btn">Sign Up</button>
+    </form>
+    <div>Already have an account? <a href="{{ url_for('user.login') }}">Log In</a></div>
   </div>
 {% endblock %}

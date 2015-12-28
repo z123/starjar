@@ -68,6 +68,59 @@ body {
     margin-right: 50px;
     justify-content: space-between;
 
+    /*.dropdown {*/
+      /*&:hover {*/
+        /*cursor: pointer;*/
+      /*}*/
+
+      /*ul {*/
+        /*display: inline;*/
+        /*list-style-type: none; */
+        /*font-family: $lato;*/
+        /*font-weight: $lato-normal;*/
+        /*font-size: 14px;*/
+      /*}*/
+    /*}*/
+
+    .text {
+      display: inline;
+      font-family: $lato;
+      font-weight: $lato-normal;
+      font-size: 14px;
+    }
+
+    i {
+      vertical-align: middle;
+      margin-bottom: 7px;
+    }
+    
+    .menu {
+      cursor: auto;
+      position: absolute;
+      display: none;
+      outline: none;
+      min-width: -webkit-max-content;
+      min-width: -moz-max-content;
+      min-width: max-content;
+      margin: 0em;
+      padding: 0em 0em;
+      background: #FFFFFF;
+      font-size: 1em;
+      text-shadow: none;
+      text-align: left;
+      box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      border-radius: 0.28571429rem;
+      -webkit-transition: opacity 0.1s ease;
+      transition: opacity 0.1s ease;
+      z-index: 11;
+      will-change: transform, opacity;
+      font-family: $lato;
+      font-weight: $lato-normal;
+      font-size: 14px;
+
+    }
+
     .btn {
       @include button(80px, 30px);
       font-family: $lato;

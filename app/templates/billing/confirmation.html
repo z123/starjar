@@ -1,7 +1,11 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
+
+{% block title %}Thank You{% endblock %}
 
 {% block body %}
-  {{ super() }}
-
-  <div>THanks bro!</div>
+  <div id="confirmation">
+    <div>Thank You For Subscribing =)</div>
+    <a href="{{ url_for('strategy.strategy_details',
+                        strategy_name=plan_id) }}">Click here to view the strategy</a>
+  </div>
 {% endblock %}

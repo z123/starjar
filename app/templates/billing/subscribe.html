@@ -1,28 +1,41 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
 
 {% block body %}
   {{ super() }}
 
-  <form id="credit-card-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
-    {% if form.errors %}
-      <ul class="list-unstyled text-danger field-error">
-        {% for error in form.errors %}
-          <li>{{ error }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+  <div id="payment-container">
+    <div id="payment-forms">
+      <h1>Payment Information</h1>
+      <form id="credit-card-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
+        {% if form.errors %}
+          <ul class="list-unstyled text-danger field-error">
+            {% for error in form.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
 
-    <input data-braintree-name="number">
-    <input data-braintree-name="cvv">
-    <input data-braintree-name="expiration_date">
+        <input placeholder="Credit Card Number" data-braintree-name="number">
+        <input placeholder="CVV" data-braintree-name="cvv">
+        <input placeholder="Expires MM/YYYY"  data-braintree-name="expiration_date">
 
-    {{ form.hidden_tag() }}
-    <input type="submit" value="Pay now">
-  </form>
+        {{ form.hidden_tag() }}
+        <button class="btn" type="submit">Submit Payment</button>
+      </form>
 
-  <form id="paypal-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
-    {{ form.hidden_tag() }}
-  </form>
+      <table width="85%">
+        <tr>
+          <td><hr /></td>
+          <td style="width:1px; padding: 0 10px; white-space: nowrap;">or pay with PayPal</td>
+          <td><hr /></td>
+        </tr>
+      </table>
+
+      <form id="paypal-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
+        {{ form.hidden_tag() }}
+      </form>
+    </div>
+  </div>
 
   <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
   <script>
@@ -36,7 +49,10 @@
     });
 
     braintree.setup(clientToken, "paypal", {
-      container: "paypal-checkout"
+      container: "paypal-checkout",
+      onPaymentMethodReceived: function (obj) {
+        document.querySelector('#paypal-checkout').submit();
+      }
     });
   </script>
 

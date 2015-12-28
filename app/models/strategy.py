@@ -17,6 +17,7 @@ class Strategy(ResourceMixin, db.Model):
     positions = db.relationship('Security', lazy=True, secondary='strategy_security_link')
 
     # Billing
+    # plan ids should always be lower cased dashed version of name
     plan_id = db.Column(db.String(128))
 
 # Using 'Return' seems dangerous. But I'm too ocd on naming.

@@ -57,11 +57,19 @@
   
 }
 
-#how-it-works {
+.anchor {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}
+
+#how-it-works-2 {
   @include section()
   display: flex;
   flex-direction: column;
   align-items: center;
+
 
   p {
     font-family: $open-sans;
@@ -129,3 +137,6 @@
 hr {
   border-top: 1px solid #DDD;
 }
+
+
+

@@ -34,6 +34,11 @@ class Subscription(ResourceMixin, db.Model):
         :return: bool
         """
 
+        #TODO: plan_id and user_id should be unique, I should be updating 
+        # old plans if they get reactivated. Implement logic to check this in future.
+        # otherwise you can end up with a bunch of unactive plans when you get the user.
+        # Which may cause slowness for that user.
+
         # Set the subscription details.
         self.user_id = user.id
         self.plan_id = plan_id
@@ -83,5 +88,5 @@ class Subscription(ResourceMixin, db.Model):
         # TODO: Better to use webhooks rather than querying braintree
         # everytime. Implement sometime in the future.
         subscription = braintree.Subscription.find(self.subscription_id)
-        return subscription == braintree.Subscription.status.Active
+        return subscription.status == braintree.Subscription.Status.Active
 

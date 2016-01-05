@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.5",
-    "semantic-ui-dropdown": "^2.1.7"
+    "semantic-ui-dropdown": "^2.1.7",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
   }
 }

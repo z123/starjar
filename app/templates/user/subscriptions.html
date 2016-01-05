@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+  {{ super() }}
+{% endblock %}
+
+{% block title %}Subscriptions{% endblock %}
+
+{% block body %}
+  {{ super() }}
+  <div id="subscriptions">
+    <h1>My Subscriptions</h1>
+    {% if subscriptions|length == 0 %}
+      <div class="item">You have no subscriptions <a href="{{ url_for('strategy.strategies') }}">click here</a> to view strategies.</div>
+    {% else %}
+      {% for subscription in subscriptions %}
+        {% if subscription.is_active() %}
+          <a class="item" href="{{ url_for('strategy.strategy_details',
+                                   strategy_name=subscription.plan_id) }}">{{ subscription.strategy.name }}</div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endblock %}

@@ -5,7 +5,7 @@ from flask import (
     redirect,
     request,
     render_template)
-from flask_login import login_user, login_required, logout_user
+from flask_login import current_user, login_user, login_required, logout_user
 from app.models.user import User
 from app.forms.user import LoginForm, SignupForm, EmailForm
 
@@ -54,7 +54,7 @@ def logout():
 @login_required
 def subscriptions():
     # TODO: Logic for getting subscriptions
-    return render_template('user/subscriptions.html')
+    return render_template('user/subscriptions.html', subscriptions=current_user.subscriptions)
 
 @user.route('/reset-password', methods=['GET', 'POST'])
 def password_reset():

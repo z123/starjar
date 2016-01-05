@@ -14,7 +14,10 @@ class Subscription(ResourceMixin, db.Model):
                         index=True, nullable=False)
 
     # Braintree details
-    plan_id = db.Column(db.String(128))
+    # Can technically remove plan_id as its in the strategy
+    plan_id = db.Column(db.String(128), db.ForeignKey('strategies.plan_id'))
+    strategy = db.relationship('Strategy', lazy=True)
+
     subscription_id = db.Column(db.String(128))
     payment_method_token = db.Column(db.String(128))
 

@@ -20,11 +20,18 @@ gulp.task('fonts', function() {
 
 gulp.task('js', function() {
   return gulp.src(['./app/static/js/app.js'])
+  .pipe(gulp.dest(config.publicDir + '/js'));
 });
 
 gulp.task('default', ['css', 'fonts', 'js']);
 
 gulp.watch('./app/static/css/**/*.scss', ['css'])
+  .on('change', function (event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');       
+  }
+);
+
+gulp.watch('./app/static/js/**/*.js', ['js'])
   .on('change', function (event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');       
   }

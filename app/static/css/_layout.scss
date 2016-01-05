@@ -68,19 +68,11 @@ body {
     margin-right: 50px;
     justify-content: space-between;
 
-    /*.dropdown {*/
-      /*&:hover {*/
-        /*cursor: pointer;*/
-      /*}*/
-
-      /*ul {*/
-        /*display: inline;*/
-        /*list-style-type: none; */
-        /*font-family: $lato;*/
-        /*font-weight: $lato-normal;*/
-        /*font-size: 14px;*/
-      /*}*/
-    /*}*/
+    .dropdown {
+      &:hover > .menu {
+        display: block;
+      }
+    }
 
     .text {
       display: inline;
@@ -119,6 +111,17 @@ body {
       font-weight: $lato-normal;
       font-size: 14px;
 
+      .item {
+        margin-top: 2px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+      }
+
+      .item a {
+        text-decoration: none;
+        color: #000;
+      }
     }
 
     .btn {

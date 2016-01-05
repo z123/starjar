@@ -13,12 +13,12 @@ class Strategy(ResourceMixin, db.Model):
     name = db.Column(db.String(128))
     description = db.Column(db.String)
     quantopian_url = db.Column(db.String)
-    returns = db.relationship('Return', backref='strategy', lazy=True)
+    returns = db.relationship('Return', lazy=True)
     positions = db.relationship('Security', lazy=True, secondary='strategy_security_link')
 
     # Billing
     # plan ids should always be lower cased dashed version of name
-    plan_id = db.Column(db.String(128))
+    plan_id = db.Column(db.String(128), unique=True)
 
 # Using 'Return' seems dangerous. But I'm too ocd on naming.
 class Return(db.Model):

@@ -26,6 +26,7 @@
     {% endblock %}
 
     {% block script %}
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     {% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
@@ -34,7 +35,7 @@
   <body>
     {% block header %}{% endblock %}
 
-    <div class="container">
+    <div class="flash">
       {{ flash.render() }}
     </div>
 

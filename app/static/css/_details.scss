@@ -1,0 +1,132 @@
+@import "button";
+@import "fonts";
+
+#details {
+  margin-left: 40px;
+  margin-top: 110px;
+
+  #name {
+    font-family: $lato;
+    font-weight: $lato-normal;
+    font-size: 36px;
+    color: #000000;
+  }
+
+  .header {
+    display: flex;
+
+    .subscribe-btn-container {
+      display: flex;
+      margin-left: 32px;
+      margin-top: 7px;
+    }
+
+    .btn {
+      @include button(102px, 33px);
+      text-decoration: none;
+      background: #48C9B0;
+      border-radius: 3px;
+      font-family: $lato;
+      font-weight: $lato-bold;
+      font-size: 16px;
+      color: #FFFFFF;
+    }
+
+    .subscribe-btn-count {
+      /* Rectangle 34: */
+      @include button(50px, 31px);
+      border: 1px solid #BABABA;
+      border-left: none;
+      margin-left: -2px;
+      border-radius: 3px;
+      font-family: $lato;
+      font-weight: $lato-bold;
+      font-size: 14px;
+      color: #5B5B5B;
+    }
+  }
+
+  .description {
+    width: 796px;
+    font-family: $lato;
+    font-weight: $lato-normal;
+    font-size: 14px;
+    color: #5B5B5B;
+  }
+
+  .position-label {
+    font-family: $lato;
+    font-weight: $lato-normal;
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .positions {
+    font-family: $lato;
+    font-weight: $lato-normal;
+    font-size: 24px;
+    color: #5B5B5B;
+  }
+
+  .positions + .positions {
+    margin-top: 10px;
+  }
+
+  .locked-content {
+    display: flex;
+    margin-top: 42px;
+    margin-left: 72px;
+    
+    .fa-lock {
+      font-size: 84px;
+    }
+
+    div {
+      margin-left: 20px;
+      font-family: $lato;
+      font-weight: $lato-normal;
+      font-size: 24px;
+      color: #5B5B5B;
+      line-height: 84px;
+    }
+  }
+
+  .stat-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 796px;
+    margin-top: 56px;
+    font-family: $lato;
+    font-weight: $lato-bold;
+    color: #5B5B5B;
+
+    .stat-container {
+      text-align: center;
+    }
+    .stat {
+      font-size: 36px;
+    }
+    .stat-label {
+      font-size: 20px;
+    }
+  }
+
+  .graph-label {
+    font-family: $lato;
+    font-weight: $lato-normal;
+    font-size: 24px;
+    margin-top: 60px;
+  }
+
+  #graph {
+    margin-left: -50px;
+    margin-top: 40px;
+  }
+
+  #heatmap-title {
+    font-family: $lato;
+    font-weight: $lato-normal;
+    font-size: 24px;
+  }
+}

@@ -39,3 +39,11 @@ class User(UserMixin, ResourceMixin, db.Model):
     def is_correct_password(self, plaintext):
         return bcrypt.check_password_hash(self._password, plaintext)
 
+    def is_subscribed(self, plan_id):
+        plans = filter(lambda subscription: subscription.plan_id == plan_id,
+                      self.subscriptions)
+        subscribed = len(plans) and plans[-1].is_active()
+
+        return subscribed
+
+

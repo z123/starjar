@@ -9,9 +9,147 @@
 {% block body %}
   {{ super() }}
 
-  <div id="strategies">
-    <h2>{{ strat.name }}</h2>
-    <a href="{{ url_for('billing.subscribe', plan_id=strat.plan_id) }}"
-       class="btn">Subscribe</a>
+  <div id="details">
+    <div class="header">
+      <div id="name">{{ strat.name }}</div>
+      {% if not subscribed %}
+        <div class="subscribe-btn-container">
+          <a href="{{ url_for('billing.subscribe', plan_id=strat.plan_id) }}"
+             class="btn">Subscribe</a>
+          <span class="subscribe-btn-count">562</span>
+        </div>
+      {% endif %}
+    </div>
+    <div class="description">
+      This strategy uses advanced dick sucking techniques to generate returns beyound your wildest dreamz. With unbelivable
+      momentum power, this strategy can suck your dick longer than your wife.
+    </div>
+    {% if subscribed %}
+      <div class="position-label">Current Positions</div>
+      <div class="positions">TLT 22 %</div>
+      <div class="positions">XLE 33 %</div>
+      <div class="positions">IEF 20 %</div>
+    {% else %}
+      <div class="locked-content">
+        <i class="fa fa-lock"></i>
+        <div>Subscribe to see current positions for this strategy.</div>
+      </div>
+    {% endif %}
+    <div class="stat-bar">
+      <div class="stat-container">
+        <div class="stat">0.5 %</div>
+        <div class="stat-label">Last 3 Months</div>
+      </div>
+      <div class="stat-container">
+        <div class="stat">100.5 %</div>
+        <div class="stat-label">Year To Date</div>
+      </div>
+      <div class="stat-container">
+        <div class="stat">10.5 %</div>
+        <div class="stat-label">Max Loss</div>
+      </div>
+      <div class="stat-container">
+        <div class="stat">10.5 %</div>
+        <div class="stat-label">Annual Return</div>
+      </div>
+      <div class="stat-container">
+        <div class="stat">200.5 %</div>
+        <div class="stat-label">Total Return</div>
+      </div>
+    </div>
+    <div class="graph-label">Strategy Performance</div>
+    <div id="graph" style="width:720px;height:380px;"></div>
+    <div id="heatmap-title">Monthly Returns</div>
+    <div id="heatmap"></div>
   </div>
+  <script>
+    // Graph
+    Plotly.plot('graph',
+      [{
+        x: [1, 2, 3, 4, 5],
+        y: [1, 2, 4, 8, 16]
+      }],
+      {
+        margin: { t: 0 }, yaxis: { ticksuffix: " %" }
+      },
+      { staticPlot: true });
+
+    // Heatmap
+    var xValues = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Dec'];
+    var yValues = ['2010', '2011', '2012', '2013'];
+    var zValues = [
+      [0.00, 0.00, 0.75, 0.75, 0.00, null, null, null, null, null, null],
+      [0.00, 0.00, 0.75, 0.75, 0.00],
+      [0.75, 0.75, 0.75, 0.75, 0.75],
+      [0.00, 0.00, 0.00, 0.75, 0.00]
+    ];
+
+    var colorscaleValue = [
+      [0, '#FFF'],
+      [1, '#FFF'],
+    ];
+
+    var data = [{
+      x: xValues,
+      y: yValues,
+      z: zValues,
+      type: 'heatmap',
+      colorscale: colorscaleValue,
+      showscale: false,
+      visible: true,
+      connectgaps: true
+    }];
+
+    var layout = {
+      annotations: [],
+      xaxis: {
+        ticks: '',
+        side: 'top'
+      },
+      yaxis: {
+        ticks: '',
+        ticksuffix: ' ',
+        width: 700,
+        height: 700,
+        autosize: false
+      },
+    };
+
+    for ( var i = 0; i < yValues.length; i++ ) {
+      for ( var j = 0; j < xValues.length; j++ ) {
+        var currentValue = zValues[i][j];
+        if (currentValue != 0.0) {
+          var textColor = 'black';
+        }else{
+          var textColor = 'black';
+        }
+        
+        if (currentValue == undefined) {
+          currentValue = 'N/A';
+        } else {
+          currentValue += ' %';
+        }
+        
+        var result = {
+          xref: 'x1',
+          yref: 'y1',
+          x: xValues[j],
+          y: yValues[i],
+          text: currentValue,
+          font: {
+            family: 'Arial',
+            size: 12,
+            color: 'rgb(50, 171, 96)'
+          },
+          showarrow: false,
+          font: {
+            color: textColor
+          }
+        };
+        layout.annotations.push(result);
+      }
+    }
+
+    Plotly.newPlot('heatmap', data, layout, {staticPlot: true} );
+  </script>
 {% endblock %}

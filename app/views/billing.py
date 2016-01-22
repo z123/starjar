@@ -15,13 +15,12 @@ billing = Blueprint('billing', __name__, url_prefix='/billing')
 
 # TODO: Path should be /subscribe/<strategy_name> or the plan_id 
 @billing.route('/subscribe', methods=['GET', 'POST'])
+@login_required
 def subscribe():
     plan_id = request.args.get('plan_id')
 
     # Don't allow user to resubscribe if they already subscribed.
-    plans = filter(lambda subscription: subscription.plan_id == plan_id,
-                  current_user.subscriptions)
-    if len(plans) and plans[-1].is_active():
+    if current_user.is_subscribed(plan_id):
         return redirect(url_for('strategy.strategy_details',
                         strategy_name=plan_id))
 

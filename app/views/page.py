@@ -9,3 +9,7 @@ def home():
 @page.route('/about')
 def about():
     return render_template('about.html')
+
+@page.route('/faq')
+    return render_template('faq.html')
+

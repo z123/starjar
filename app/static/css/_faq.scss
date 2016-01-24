@@ -1,0 +1,32 @@
+@import "fonts";
+
+#faq {
+  margin-left: 40px;
+  margin-top: 110px;
+  font-family: $lato;
+  width: 800px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: $lato-normal;
+    margin-bottom: 40px;
+  }
+
+  .question {
+    font-size: 24px;
+    margin-top: 26px;
+  }
+  
+  .question + .question {
+    margin-top: 36px;
+  }
+
+  .answer {
+    font-size: 18px;
+    font-weight: $lato-normal;
+    color: #9B9B9B;
+    margin-top: 10px;
+  }
+
+  
+}

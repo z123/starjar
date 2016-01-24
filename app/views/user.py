@@ -6,8 +6,11 @@ from flask import (
     request,
     render_template)
 from flask_login import current_user, login_user, login_required, logout_user
+from app import mail
 from app.models.user import User
-from app.forms.user import LoginForm, SignupForm, EmailForm
+from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm
+from app.utils.security import ts
+from flask_mail import Message
 
 user = Blueprint('user', __name__)
 
@@ -40,7 +43,7 @@ def signup():
 
         if login_user(u):
             flash('Awesome, thanks for signing up!', 'success')
-            return redirect(url_for('page.home'))
+            return redirect(url_for('user.subscriptions'))
 
     return render_template('user/signup.html', form=form)
 
@@ -53,20 +56,41 @@ def logout():
 @user.route('/subscriptions')
 @login_required
 def subscriptions():
-    # TODO: Logic for getting subscriptions
     return render_template('user/subscriptions.html', subscriptions=current_user.subscriptions)
 
-@user.route('/reset-password', methods=['GET', 'POST'])
-def password_reset():
+@user.route('/forgot_password', methods=['GET', 'POST'])
+def forgot_password():
     form = EmailForm()
 
     if form.validate_on_submit():
         u = User.query.filter_by(email=form.email.data).first()
-        # TODO: Verify user exists and send Email
+        if u:
+            flash('A password reset email has been sent.')
+            subject = 'Password reset requested'
+            token = ts.dumps(u.email, salt='recover-key')
+            reset_url = url_for('user.password_reset', token=token, _external=True)
+            # TODO: Change email/recover to something else like email/reset_password
+            html = render_template('email/recover.html', reset_url=reset_url)
+            msg = Message(subject, [u.email], html=html)
+            mail.send(msg)
+        else:
+            flash('No user under that email exists.')
 
-    return render_template('user/reset_password.html')
+    return render_template('user/forgot_password.html', form=form)
 
-@user.route('/reset-password/<token>')
-def reset_password_with_token():
-    # TODO: Insert resetting logic
-    return render_template('user/reset_password_with_token.html')
+@user.route('/password_reset/<token>', methods=['GET', 'POST'])
+def password_reset(token):
+    try:
+        email = ts.loads(token, salt="recover-key", max_age=86400)
+    except:
+        abort(404)
+
+    form = PasswordForm()
+    if form.validate_on_submit():
+        u = User.query.filter_by(email=email).first_or_404()
+        u.password = form.password.data
+        u.save()
+
+        return redirect(url_for('user.login'))
+
+    return render_template('user/password_reset.html', form=form, token=token)

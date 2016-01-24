@@ -27,6 +27,9 @@ braintree.Configuration.configure(braintree.Environment.Sandbox,
                                   public_key=app.config.get('BT_PUBLIC_KEY'),
                                   private_key=app.config.get('BT_PRIVATE_KEY'))
 
+from flask_mail import Mail
+mail = Mail(app)
+
 # Views
 from app.views.page import page
 from app.views.strategy import strategy

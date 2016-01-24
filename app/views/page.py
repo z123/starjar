@@ -11,5 +11,11 @@ def about():
     return render_template('about.html')
 
 @page.route('/faq')
+def faq():
     return render_template('faq.html')
+
+@page.route('/blog')
+def blog():
+    return render_template('blog.html')
+
 

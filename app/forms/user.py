@@ -19,3 +19,7 @@ class SignupForm(Form):
 
 class EmailForm(Form):
     email = TextField('Email', [DataRequired(), Email(), Length(5, 64)])
+
+class PasswordForm(Form):
+    password = PasswordField('Password', [DataRequired(), Length(1, 128)])
+

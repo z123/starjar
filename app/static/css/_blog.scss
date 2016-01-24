@@ -1,0 +1,27 @@
+@import "fonts";
+
+#blog {
+  display: flex;
+  margin-left: 40px;
+  margin-top: 110px;
+  font-family: $lato;
+
+  div {
+    font-size: 36px;
+    font-weight: $lato-normal;
+    margin-bottom: 40px;
+  }
+
+  .question {
+    font-size: 24px;
+  }
+  
+  .answer {
+    font-size: 18px;
+    font-weight: $lato-normal;
+    color: #9B9B9B;
+    margin-top: 10px;
+  }
+
+  
+}

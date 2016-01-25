@@ -25,7 +25,7 @@ def login():
             login_user(u)
             return redirect(url_for('user.subscriptions'))
         else:
-            flash('Email or password is incorrect.', 'error')
+            flash('Invalid email or password', 'error')
 
     return render_template('user/login.html', form=form)
 
@@ -42,8 +42,10 @@ def signup():
         u.save()
 
         if login_user(u):
-            flash('Awesome, thanks for signing up!', 'success')
+            flash('Thanks for signing up!', 'success')
             return redirect(url_for('user.subscriptions'))
+    elif len(form.errors):
+        flash(form.errors.values()[0][0], 'error')
 
     return render_template('user/signup.html', form=form)
 
@@ -92,5 +94,7 @@ def password_reset(token):
         u.save()
 
         return redirect(url_for('user.login'))
+    elif len(form.errors):
+            flash(form.errors.values()[0][0], 'error')
 
     return render_template('user/password_reset.html', form=form, token=token)

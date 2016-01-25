@@ -2,13 +2,11 @@
 {%- macro render() -%}
   {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
-        <div id="flash-messages">
-          {% for category, msg in messages %}
-              <div class="alert alert-{{ category }}" role="alert">
-                {{ msg }}
-              </div>
-          {% endfor %}
-        </div>
+        {% for category, msg in messages %}
+            <div class="{{ category }}" role="alert">
+              {{ msg }}
+            </div>
+        {% endfor %}
     {% endif %}
   {% endwith %}
 {%- endmacro -%}

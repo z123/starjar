@@ -34,6 +34,11 @@ def subscribe():
         created = subscription.create(current_user, plan_id, nonce)
         if created.is_success:
             return redirect(url_for('billing.confirmation', plan_id=plan_id))
+        else:
+            errors = created.errors.deep_errors
+            errors = filter(lambda error: error.attribute != 'base', errors)
+            if len(errors):
+                flash(errors[0].message)
 
     token = braintree.ClientToken.generate()
     return render_template('billing/subscribe.html', form=form, token=token)

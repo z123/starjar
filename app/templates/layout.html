@@ -32,8 +32,8 @@
 <div class="footer">
   <div class="logo">starjar</div>
   <a class="item" href="{{ url_for('page.about') }}">About Us</a>
-  <a class="item" href="#">FAQ</a>
-  <a class="item" href="#">Blog</a>
+  <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
+  <a class="item" href="{{ url_for('page.blog') }}">Blog</a>
   <a class="item" href="#">Contact Us</a>
 </div>
 {% endblock %}

@@ -6,7 +6,7 @@
   <div id="payment-container">
     <div id="payment-forms">
       <h1>Payment Information</h1>
-      <form id="credit-card-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
+      <form id="credit-card-checkout" method="post" action="{{ url_for('billing.subscribe', plan_id= plan_id) }}">
         <input placeholder="Credit Card Number" data-braintree-name="number">
         <input placeholder="CVV" data-braintree-name="cvv">
         <input placeholder="Expires MM/YYYY"  data-braintree-name="expiration_date">

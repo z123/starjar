@@ -18,9 +18,11 @@ billing = Blueprint('billing', __name__, url_prefix='/billing')
 @login_required
 def subscribe():
     plan_id = request.args.get('plan_id')
+    print(plan_id)
 
     # Don't allow user to resubscribe if they already subscribed.
     if current_user.is_subscribed(plan_id):
+        flash("You area already subscribed to this strategy")
         return redirect(url_for('strategy.strategy_details',
                         strategy_name=plan_id))
 
@@ -36,12 +38,20 @@ def subscribe():
             return redirect(url_for('billing.confirmation', plan_id=plan_id))
         else:
             errors = created.errors.deep_errors
+            # Filters out wierd errors, look up errors if curious
+            # TODO: Create a function that parses braintree errors
+            # and returns nice and cleanly messaged errors
             errors = filter(lambda error: error.attribute != 'base', errors)
+            errors = filter(lambda error: error.code != '81703', errors)
+
             if len(errors):
                 flash(errors[0].message)
+            else:
+                flash('Invalid credit card')
 
     token = braintree.ClientToken.generate()
-    return render_template('billing/subscribe.html', form=form, token=token)
+    return render_template('billing/subscribe.html', form=form, token=token,
+                            plan_id=plan_id)
 
 @billing.route('/confirmation')
 def confirmation():

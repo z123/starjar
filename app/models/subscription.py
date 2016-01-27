@@ -20,6 +20,7 @@ class Subscription(ResourceMixin, db.Model):
 
     subscription_id = db.Column(db.String(128))
     payment_method_token = db.Column(db.String(128))
+    active = db.Column(db.Boolean())
 
     def create(self, user=None, plan_id=None, payment_method_nonce=None):
         """
@@ -76,6 +77,7 @@ class Subscription(ResourceMixin, db.Model):
 
         if result.is_success:
             self.subscription_id = result.subscription.id
+            self.active = True
         else:
             return result
 
@@ -88,8 +90,6 @@ class Subscription(ResourceMixin, db.Model):
         return result
 
     def is_active(self):
-        # TODO: Better to use webhooks rather than querying braintree
-        # everytime. Implement sometime in the future.
-        subscription = braintree.Subscription.find(self.subscription_id)
-        return subscription.status == braintree.Subscription.Status.Active
+        """ DEPERECIATED FUNCTION PLEASE USE active field of subscription"""
+        return self.active
 

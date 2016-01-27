@@ -24,17 +24,6 @@
       This strategy uses advanced dick sucking techniques to generate returns beyound your wildest dreamz. With unbelivable
       momentum power, this strategy can suck your dick longer than your wife.
     </div>
-    {% if subscribed %}
-      <div class="position-label">Current Positions</div>
-      <div class="positions">TLT 22 %</div>
-      <div class="positions">XLE 33 %</div>
-      <div class="positions">IEF 20 %</div>
-    {% else %}
-      <div class="locked-content">
-        <i class="fa fa-lock"></i>
-        <div>Subscribe to see current positions for this strategy.</div>
-      </div>
-    {% endif %}
     <div class="stat-bar">
       <div class="stat-container">
         <div class="stat">0.5 %</div>
@@ -57,6 +46,18 @@
         <div class="stat-label">Total Return</div>
       </div>
     </div>
+    <div class="position-label">Current Positions</div>
+    {% if subscribed %}
+      <div class="positions">TLT 22 %</div>
+      <div class="positions">XLE 33 %</div>
+      <div class="positions">IEF 20 %</div>
+    {% else %}
+      <div class="locked-content">
+        <i class="fa fa-lock"></i>
+        <div>Subscribe to see current positions for this strategy.</div>
+      </div>
+    {% endif %}
+    
     <div class="graph-label">Strategy Performance</div>
     <div id="graph" style="width:720px;height:380px;"></div>
     <div id="heatmap-title">Monthly Returns</div>

@@ -98,3 +98,7 @@ def password_reset(token):
             flash(form.errors.values()[0][0], 'error')
 
     return render_template('user/password_reset.html', form=form, token=token)
+
+@user.route('/settings', methods=['GET', 'POST'])
+def settings():
+    pass

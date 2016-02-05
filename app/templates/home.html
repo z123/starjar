@@ -10,41 +10,81 @@
   {{ super() }}
 
   <div id="investing-made-simple">
-    <div class="container">
-      <h1>Investing made simple.</h1>
-      <h2>Starjar creates advanced investing strategies that out perform the market.</h2>
-      <a class="btn">Get Started  <i class="fa fa-arrow-right"></i></a>
+    <div class="content container">
+      <div class="left">
+        <h1>Investing made simple.</h1>
+        <h2>Strategy Jar creates advanced investing strategies that out perform
+          <br>the market.</h2>
+        <h2>Beat the market for only $10 / month.</h2>
+        <a class="btn">Get Started  <i class="fa fa-arrow-right"></i></a>
+      </div>
+      <div class="right">
+        <img src="../static/img/test.png" alt="chart">
+      </div>
     </div>
   </div>
   <hr>
-  <!--TODO: This is ugly fix-->
-  <a class="anchor" name="how-it-works"></a>
-  <div id="how-it-works-2">
-    <h1>How it works</h1>
-    <div class="container">
-      <div class="left">
-        <h2>Step 1: Choose a strategy</h2>
-        <p>Choose a strategy based on your risk tolerence and trading frequency. You can even subscribe
-        to multiple strategies if you so desire.</p>
-      </div>
-      <div class="right">
-        <h2>Step 2: Update your portfolio</h2>
-        <p>Every month we email you with a list of stocks to buy and how much to allocate to each stock.</p>
+  <div id="the-strategy">
+    <div>
+      <div class="content container">
+        <h1>The Strategy</h1>
+        <div class="stats">
+          <div class="annual-return">
+            <div class="stat">12 %</div>
+            <div class="stat-label">Annual Return</div>
+            <div class="stat-description">Over the last 10 years the strategy on
+              average has returned 12 % every year. This is the return you can
+              expect from this strategy. The average investor only returns 7 % per year.</div>
+          </div>
+          <div class="max-loss">
+            <div class="stat">13 %</div>
+            <div class="stat-label">Max Loss</div>
+            <div class="stat-description">This is the max amount our strategy has ever lost,
+              even through 2008 one of the worst fincial crisis in US history. 
+              To put this into perspective the average investor lost 50 % of there portfolio
+              in 2008.</div>
+          </div>
+          <div class="total-return">
+            <div class="stat">230 %</div>
+            <div class="stat-label">Total Return</div>
+            <div class="stat-description">Over the last 10 years the strategy has returned
+              a total of 230 % that means you would have tripled your net worth.
+              The average investor returned only 100 % during this time period.</div>
+          </div>
+        </div>
       </div>
     </div>
-    <a class="btn">Pick a strategy <i class="fa fa-arrow-right"></i></a>
+  </div>
+  <hr>
+  <div id="how-it-works">
+    <div class="content container">
+      <h1>How it works</h1>
+      <div class="steps">
+        <div class="left">
+          <h2>Step 1: Subscribe</h2>
+          <p>Simply subscribe to our strategy for only $10 a month.
+          All major credit cards and paypal accepted.</p>
+        </div>
+        <div class="right">
+          <h2>Step 2: Buy the stocks</h2>
+          <p>Every month you will get an email that will tell you
+          what stocks to buy and how much of your portfolio to allocate
+          to each stock.</p>
+        </div>
+      </div>
+    </div>
   </div>
   <hr>
   <div id="why-us">
-    <h1>Why Us?</h1>
     <div class="container">
+      <h1>Why Us?</h1>
       <ul>
         <li>We provide hedge fund level strategies but without the cost and requirements of an actually hedge fund.</li>
         <li>Our strategies are rigoursly backtested to ensure they actually work.</li>
         <li>Using an automated strategy keeps your emotions out of the
-        market. Just follow the strategy and you will win. We have hunderds of happy subscribers.</li>
+        market. Just follow the strategy and you will win. We have hunderds of investors already using our strategy.</li>
       </ul>
-      <a class="btn">Get Started  <i class="fa fa-arrow-right"></i></a>
+      <a class="btn">Subscribe Now<i class="fa fa-arrow-right"></i></a>
     </div>
   </div>
 {% endblock %}

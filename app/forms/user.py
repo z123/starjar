@@ -9,6 +9,10 @@ class LoginForm(Form):
     email = TextField('Email', [Length(0, 64)])
     password = PasswordField('Password', [Length(0, 128)])
 
+class ChangeEmailForm(Form):
+    email = TextField('Email', [Length(0, 64)])
+    password = PasswordField('Password', [Length(0, 128)])
+
 class SignupForm(Form):
     email = TextField('Email', [DataRequired(message="Email address required"),
                                 Email(message="Not a valid email address"),

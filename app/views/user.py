@@ -8,7 +8,7 @@ from flask import (
 from flask_login import current_user, login_user, login_required, logout_user
 from app import mail
 from app.models.user import User
-from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm
+from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm, ChangeEmailForm
 from app.utils.security import ts
 from flask_mail import Message
 
@@ -101,4 +101,7 @@ def password_reset(token):
 
 @user.route('/settings', methods=['GET', 'POST'])
 def settings():
-    pass
+    form = ChangeEmailForm()
+    if form.validate_on_submit():
+        pass
+    return render_template('user/settings.html')

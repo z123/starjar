@@ -12,25 +12,25 @@ a {
   }
 }
 
-.flash {
-  margin-top: 60px;  
-  // Hack because using margin with other elements
-  // seems to ignore elements with 0px
-  padding-top: .1px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  font-family: $lato;
-  font-weight: $lato-normal;
-  font-size: 24px;
-  line-height: 50px;
-  background: #E0E1E2;
-  color: #5B5B5B;
+/*.flash {*/
+  /*margin-top: 60px;  */
+  /*// Hack because using margin with other elements*/
+  /*// seems to ignore elements with 0px*/
+  /*padding-top: .1px;*/
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-content: center;*/
+  /*font-family: $lato;*/
+  /*font-weight: $lato-normal;*/
+  /*font-size: 24px;*/
+  /*line-height: 50px;*/
+  /*background: #E0E1E2;*/
+  /*color: #5B5B5B;*/
   
-  .error {
-    left: 0;
-  }
-}
+  /*.error {*/
+    /*left: 0;*/
+  /*}*/
+/*}*/
 
 
 /* Sticky footer styles
@@ -45,12 +45,12 @@ body {
   margin-bottom: 104px;
   margin-left: 0px;
   margin-right: 0px;
+  /*margin-top: 0px;*/
 }
 
 /* Custom page CSS
 -------------------------------------------------- */
 .navbar {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -58,8 +58,6 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: #FFF;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
-  height: 60px;
 
   a {
     text-decoration: none;
@@ -69,27 +67,23 @@ body {
     font-family: $open-sans;
     font-weight: $open-sans-normal;
     font-size: 28px;
-    color: #000000;
+    color: #4A4A4A;
   }
   
   .left {
     display: flex;
     align-items: center;
-    margin-left: 50px;
 
     .item {
       font-family: $open-sans;
       font-weight: $open-sans-light;
       font-size: 16px;
       color: #000000;
-      margin-left: 30px;
-      margin-top: 5px;
     } 
   }
 
   .right {
     display: flex;
-    margin-right: 50px;
     justify-content: space-between;
 
     .dropdown {
@@ -148,46 +142,59 @@ body {
       }
     }
 
+    .item {
+      font-family: $open-sans;
+      font-weight: $open-sans-light;
+      font-size: 16px;
+      color: #000000;
+      margin-top: 3px;
+      margin-right: 30px;
+    } 
+
+    .login {
+      font-family: $lato;
+      font-weight: $lato-bold;
+      font-size: 16px;
+      color: rgba(0,0,0,0.60);
+      line-height: 23px;
+    }
+
     .btn {
       @include button(80px, 30px);
       font-family: $lato;
       font-weight: $lato-bold;
-      font-size: 14px;
+      font-size: 16px;
       color: rgba(0,0,0,0.60);
       background: #E0E1E2;
       border-radius: 4px;
     }
-
-    .btn + .btn {
-      margin-left: 20px;
-    }
   }
 }
-
 .footer {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 104px;
-  background: #EDEFF1;  
+  background: rgb(46, 50, 52);  
   display: flex;
   align-items: center;
   color: #5A5A5A;
 
   .logo {
-    font-family: $lato;
-    font-weight: $lato-normal;
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
     font-size: 28px;
     margin-left: 50px;
+    color: #f1f1f1;
   }
 
   .item {
-    color: inherit;
+    color: #f1f1f1;
     text-decoration: none;
     margin-left: 30px;
-    font-family: $lato;
-    font-weight: $lato-bold;
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
     font-size: 14px;
     margin-top: 10px;
   }

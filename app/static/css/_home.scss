@@ -1,19 +1,15 @@
 @import "button";
 @import "fonts";
 
+.content {
+  padding-left: 80px;
+  padding-right: 80px;
+  max-width: 1120px;
+  min-width: 958px;
+  margin: 0 auto;
+}
+
 @mixin section() {
-  h1 {
-    font-family: $open-sans;
-    font-weight: $open-sans-normal;
-    font-size: 48px;
-  }
-
-  h2 {
-    font-family: $open-sans;
-    font-weight: $open-sans-light;
-    font-size: 28px;
-  }
-
   .btn {
     font-family: $lato;
     font-weight: $lato-bold;
@@ -30,74 +26,172 @@
 
 #investing-made-simple {
   @include section()
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
+  padding-top: 36px;
+  padding-bottom: 106px;
 
   .container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 800px;
-    text-align: center;
+    flex-direction: row;
 
     .btn {
         @include button(185px, 50px);
-        background: #2185D0;
-        margin-top: 20px;
+        background: #00A081;
+        font-family: $open-sans;
+        font-weight: $open-sans-bold;
+        font-size: 18.94px;
+        color: #FFFFFF;
+        line-height: 26px;
+        margin-top: 30px;
+    }
+
+    .left {
+      max-width: 464px;
+    }
+    
+    .right {
+      padding-top: 76px;
+      margin-left: 96px;
     }
 
     h1 {
-      margin: 0 0 0 0;
+      font-family: $open-sans;
+      font-weight: $open-sans-normal;
+      font-size: 36px;
+      color: #4A4A4A;
+    }
+
+    h2 {
+      font-family: $open-sans;
+      font-weight: $open-sans-light;
+      font-size: 24px;
+      color: #4A4A4A;
+    }
+
+    img {
+      width: 452px;
+      height: 215px;
     }
   }
   
 }
 
-.anchor {
-  display: block;
-  position: relative;
-  top: -70px;
-  visibility: hidden;
-}
-
-#how-it-works-2 {
-  @include section()
+#the-strategy {
+  background: #F3F5F7;
+  padding-top: 20px;
+  padding-bottom: 70px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
-
-  p {
-    font-family: $open-sans;
-    font-weight: $open-sans-light;
-    font-size: 18px;
-  }
-
-  .container {
+  .stats {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
+    font-size: 36px;
+    color: #4A4A4A;
+    text-align: center;
+    margin-bottom: 42px;
+  }
+
+  .max-loss, .annual-return, .total-return {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+  }
 
-    .left {
-      width: 380px;
-      height: 180px;
-    }
+  .annual-return {
+    width: 267px;
+  }
 
-    .right {
-      margin-left: 80px;
-      width: 380px;
-      height: 180px;
-    }
+  .max-loss {
+    width: 344px;
+  }
+
+  .total-return {
+    width: 267px;
+  }
+
+  .stat {
+    font-family: $lato;
+    font-weight: $lato-light;
+    font-size: 64px;
+    color: #4A4A4A;
+  }
+
+  .stat-label {
+    font-family: $lato;
+    font-weight: $lato-light;
+    font-size: 24px;
+    color: #4A4A4A;
+  }
+
+  .stat-description {
+    margin-top: 15px;
+    font-family: $lato;
+    font-weight: $lato-light;
+    font-size: 18px;
+    text-align: center;
+    color: #999999;
+    line-height: 27px;
+  }
+}
+
+#how-it-works {
+  @include section()
+  padding-bottom: 56px;
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
+    font-size: 36px;
+    color: #4A4A4A;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: $lato;
+    font-weight: $lato-light;
+    font-size: 36px;
+    color: #4A4A4A;
+    text-align: center;
+  }
+
+  p {
+    font-family: $lato;
+    font-weight: $lato-light;
+    font-size: 18px;
+    text-align: center;
+    width: 400px;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+
   }
 
   .btn {
     @include button(185px, 50px);
-    background: #417505;
+    font-family: $open-sans;
+    font-weight: $open-sans-bold;
+    font-size: 18.94px;
+    color: #FFFFFF;
     margin-top: 50px;
     margin-bottom: 60px;
+    background: #00A081;
   }
 }
 
@@ -106,6 +200,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #F3F5F7;
+
+  h1 {
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
+    font-size: 36px;
+    color: #4A4A4A;
+    text-align: center;
+  }
 
   .container {
     display: flex;
@@ -114,9 +217,10 @@
     width: 900px;
 
     ul {
-      font-family: $open-sans;
-      font-weight: $open-sans-light;
+      font-family: $lato;
+      font-weight: $lato-light;
       font-size: 24px;
+      color: #4A4A4A;
 
       li:not(:last-child) {
         margin-bottom: 20px;
@@ -126,15 +230,20 @@
 
   .btn {
     @include button(185px, 50px);
-    background: #2185D0;
-    margin-top: 30px;
-    margin-bottom: 70px;
+    font-family: $open-sans;
+    font-weight: $open-sans-bold;
+    font-size: 18.94px;
+    color: #FFFFFF;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    background: #00A081;
   }
 
 }
 
 hr {
   border-top: 1px solid #DDD;
+  margin: 0 0 0 0;
 }
 
 

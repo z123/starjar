@@ -1,36 +1,22 @@
 {# TODO: Need to change the structure of this html page #}
 {% extends 'base.html' %}
 {% block header %}
-<div class="navbar">
+<div class="content navbar">
   <div class="left">
-    <a class="logo" href="{{ url_for('page.home') }}">starjar</a>
+    <a class="logo" href="{{ url_for('page.home') }}">Strategy Jar</a>
     <!--TODO: Fix this anchor tag-->
-    <a class="item" href="{{ url_for('page.home') }}#how-it-works">How it works</a>
-    <a class="item" href="{{ url_for('strategy.strategies') }}">Strategies</a>
-    <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
-    <a class="item" href="{{ url_for('page.blog') }}">Blog</a>
   </div>
   <div class="right">
-    {% if current_user.is_authenticated() %}
-      <div class="dropdown">
-        <div class="text">My Account</div>
-        <i class="fa fa-sort-desc"></i>
-        <div class="menu">
-          <div class="item"><a href="{{ url_for('user.subscriptions') }}">My Subscriptions</a></div>
-          <div class="item"><a href="#">Settings</a></div>
-          <div class="item"><a href="{{ url_for('user.logout') }}">Logout</a></div>
-        </div>
-      </div>
-    {% else %}
-      <a class="btn" href="{{ url_for('user.login') }}">Log in</a>
-      <a class="btn" href="{{ url_for('user.signup') }}">Sign up</a>
-    {% endif %}
+    <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
+    <a class="item" href="{{ url_for('page.blog') }}">Blog</a>
+    <a class="item login" href="{{ url_for('user.login') }}">Login</a>
+    <a class="btn" href="{{ url_for('user.signup') }}">Sign Up</a>
   </div>
 </div>
 {% endblock %}
 {% block footer %}
-<div class="footer">
-  <div class="logo">starjar</div>
+<div class="content footer">
+  <div class="logo">Strategy Jar</div>
   <a class="item" href="{{ url_for('page.about') }}">About Us</a>
   <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
   <a class="item" href="{{ url_for('page.blog') }}">Blog</a>

@@ -12,25 +12,24 @@ a {
   }
 }
 
-/*.flash {*/
+.flash {
   /*margin-top: 60px;  */
-  /*// Hack because using margin with other elements*/
-  /*// seems to ignore elements with 0px*/
-  /*padding-top: .1px;*/
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-content: center;*/
-  /*font-family: $lato;*/
-  /*font-weight: $lato-normal;*/
-  /*font-size: 24px;*/
-  /*line-height: 50px;*/
-  /*background: #E0E1E2;*/
-  /*color: #5B5B5B;*/
+  // Hack because using margin with other elements
+  // seems to ignore elements with 0px
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-family: $lato;
+  font-weight: $lato-normal;
+  font-size: 24px;
+  line-height: 50px;
+  background: #E0E1E2;
+  color: #5B5B5B;
   
-  /*.error {*/
-    /*left: 0;*/
-  /*}*/
-/*}*/
+  .error {
+    left: 0;
+  }
+}
 
 
 /* Sticky footer styles
@@ -170,6 +169,7 @@ body {
     }
   }
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -181,12 +181,16 @@ body {
   align-items: center;
   color: #5A5A5A;
 
+  .content {
+    width: 100%;
+  }
+
   .logo {
     font-family: $open-sans;
     font-weight: $open-sans-normal;
     font-size: 28px;
-    margin-left: 50px;
     color: #f1f1f1;
+    text-decoration: none;
   }
 
   .item {

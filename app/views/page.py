@@ -1,9 +1,12 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect, url_for
+from flask_login import current_user
 
 page = Blueprint('page', __name__)
 
 @page.route('/')
 def home():
+    if current_user.is_authenticated():
+        return redirect(url_for('user.subscriptions'))
     return render_template('home.html')
 
 @page.route('/about')

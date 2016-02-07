@@ -1,15 +1,15 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 
 {% block title %}Sign Up{% endblock %}
 
 {% block body %}
   <div id="signup">
     <form action="{{ url_for('user.signup') }}" method="post">
-      <h1>Sign Up</h1>
+      <h1>Sign Up for Startegy Jar</h1>
       {{ form.email(placeholder='Email Address') }}
       {{ form.password(placeholder='Password') }}
       {{ form.hidden_tag() }}
-      <button type="submit" class="btn">Sign Up</button>
+      <button type="submit" class="btn">Get Started</button>
     </form>
     <div>Already have an account? <a href="{{ url_for('user.login') }}">Log In</a></div>
   </div>

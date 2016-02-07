@@ -1,4 +1,5 @@
 from flask import (
+    abort,
     Blueprint,
     flash,
     url_for,
@@ -8,7 +9,7 @@ from flask import (
 from flask_login import current_user, login_user, login_required, logout_user
 from app import mail
 from app.models.user import User
-from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm, ChangeEmailForm
+from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm, UpdateAccountForm 
 from app.utils.security import ts
 from flask_mail import Message
 
@@ -16,6 +17,9 @@ user = Blueprint('user', __name__)
 
 @user.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated():
+        return redirect(url_for('user.subscriptions'))
+
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -23,7 +27,11 @@ def login():
 
         if u and u.is_correct_password(form.password.data):
             login_user(u)
-            return redirect(url_for('user.subscriptions'))
+            plan_id = 'standard-plan'
+            if current_user.is_subscribed(plan_id):
+                return redirect(url_for('user.subscriptions'))
+            else:
+                return redirect(url_for('billing.subscribe'))
         else:
             flash('Invalid email or password', 'error')
 
@@ -42,7 +50,6 @@ def signup():
         u.save()
 
         if login_user(u):
-            flash('Thanks for signing up!', 'success')
             return redirect(url_for('user.subscriptions'))
     elif len(form.errors):
         flash(form.errors.values()[0][0], 'error')
@@ -99,9 +106,15 @@ def password_reset(token):
 
     return render_template('user/password_reset.html', form=form, token=token)
 
-@user.route('/settings', methods=['GET', 'POST'])
-def settings():
-    form = ChangeEmailForm()
+@user.route('/settings/account', methods=['GET', 'POST'])
+def account_settings():
+    form = UpdateAccountForm()
     if form.validate_on_submit():
         pass
-    return render_template('user/settings.html')
+    return render_template('user/settings.html', form=form, settings='account')
+
+@user.route('/settings/subscription', methods=['GET'])
+def subscription_settings():
+    return render_template('user/settings.html', settings='subscription')
+
+

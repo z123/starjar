@@ -17,18 +17,20 @@ billing = Blueprint('billing', __name__, url_prefix='/billing')
 @billing.route('/subscribe', methods=['GET', 'POST'])
 @login_required
 def subscribe():
-    plan_id = request.args.get('plan_id')
-    print(plan_id)
+    # THIS FUNCTION SUBSCRIBES TO THE SAME STRATEGY. CHANGE
+    # WHEN YOU HAVE MULTIPLE STRATEGIES
+    # TODO: Put plan_id as a constant since I use it in multiple places
+    plan_id = 'standard-plan'
 
     # Don't allow user to resubscribe if they already subscribed.
     if current_user.is_subscribed(plan_id):
-        flash("You area already subscribed to this strategy")
+        #flash("You area already subscribed to this strategy")
         return redirect(url_for('strategy.strategy_details',
                         strategy_name=plan_id))
 
     form = PaymentForm(plan_id=plan_id)
     if form.validate_on_submit():
-        plan_id = request.form.get('plan_id')
+        #plan_id = request.form.get('plan_id')
         nonce = request.form.get("payment_method_nonce")
 
         # Create Subscription
@@ -50,8 +52,7 @@ def subscribe():
                 flash('Invalid credit card')
 
     token = braintree.ClientToken.generate()
-    return render_template('billing/subscribe.html', form=form, token=token,
-                            plan_id=plan_id)
+    return render_template('billing/subscribe.html', form=form, token=token)
 
 @billing.route('/confirmation')
 def confirmation():

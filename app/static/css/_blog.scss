@@ -2,13 +2,12 @@
 
 #blog {
   display: flex;
-  margin-left: 40px;
   margin-top: 40px;
-  font-family: $lato;
+  font-family: $open-sans;
 
   div {
     font-size: 36px;
-    font-weight: $lato-normal;
+    font-weight: $open-sans-normal;
     margin-bottom: 40px;
   }
 
@@ -18,7 +17,7 @@
   
   .answer {
     font-size: 18px;
-    font-weight: $lato-normal;
+    font-weight: $open-sans-normal;
     color: #9B9B9B;
     margin-top: 10px;
   }

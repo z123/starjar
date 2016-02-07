@@ -1,14 +1,13 @@
 @import "fonts";
 
 #faq {
-  margin-left: 40px;
   margin-top: 40px;
-  font-family: $lato;
-  width: 800px;
+  font-family: $open-sans;
+  color: #444;
 
   h1 {
     font-size: 24px;
-    font-weight: $lato-normal;
+    font-weight: $open-sans-normal;
     margin-bottom: 40px;
   }
 

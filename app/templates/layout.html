@@ -6,21 +6,34 @@
     <a class="logo" href="{{ url_for('page.home') }}">Strategy Jar</a>
     <!--TODO: Fix this anchor tag-->
   </div>
-  <div class="right">
-    <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
-    <a class="item" href="{{ url_for('page.blog') }}">Blog</a>
-    <a class="item login" href="{{ url_for('user.login') }}">Login</a>
-    <a class="btn" href="{{ url_for('user.signup') }}">Sign Up</a>
-  </div>
+  {% if current_user.is_authenticated() %}
+    <div class="right">
+      <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
+      <!--<a class="item" href="{{ url_for('page.blog') }}">Blog</a>-->
+      <a class="item" href="{{ url_for('user.account_settings') }}">Settings</a>
+      <a class="btn" href="{{ url_for('user.logout') }}">Log Out</a>
+    </div>
+  {% else %}
+    <div class="right">
+      <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
+      <!--<a class="item" href="{{ url_for('page.blog') }}">Blog</a>-->
+      <a class="item login" href="{{ url_for('user.login') }}">Login</a>
+      <a class="btn" href="{{ url_for('user.signup') }}">Sign Up</a>
+    </div>
+  {% endif %}
 </div>
 {% endblock %}
 {% block footer %}
-<div class="content footer">
-  <div class="logo">Strategy Jar</div>
-  <a class="item" href="{{ url_for('page.about') }}">About Us</a>
-  <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
-  <a class="item" href="{{ url_for('page.blog') }}">Blog</a>
-  <a class="item" href="#">Contact Us</a>
-</div>
+{% if not current_user.is_authenticated() %}
+  <div class="footer">
+    <div class="content">
+      <a class="logo" href="{{ url_for('page.home') }}">Strategy Jar</a>
+      <a class="item" href="{{ url_for('page.about') }}">About Us</a>
+      <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
+      <!--<a class="item" href="{{ url_for('page.blog') }}">Blog</a>-->
+      <a class="item" href="#">Contact Us</a>
+    </div>
+  </div>
+{% endif %}
 {% endblock %}
 

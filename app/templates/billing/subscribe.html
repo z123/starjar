@@ -4,9 +4,10 @@
   {{ super() }}
 
   <div id="payment-container">
+    <h1>$10 / month subscription to Strategy Jar</h1>
     <div id="payment-forms">
-      <h1>Payment Information</h1>
-      <form id="credit-card-checkout" method="post" action="{{ url_for('billing.subscribe', plan_id= plan_id) }}">
+      <h2>Payment Details</h2>
+      <form id="credit-card-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
         <input placeholder="Credit Card Number" data-braintree-name="number">
         <input placeholder="CVV" data-braintree-name="cvv">
         <input placeholder="Expires MM/YYYY"  data-braintree-name="expiration_date">
@@ -15,10 +16,10 @@
         <button class="btn" type="submit">Submit Payment</button>
       </form>
 
-      <table width="85%">
+      <table width="60%">
         <tr>
           <td><hr /></td>
-          <td style="width:1px; padding: 0 10px; white-space: nowrap;">or pay with PayPal</td>
+          <td style="width:1px; padding: 0 10px; white-space: nowrap;">Or Pay with PayPal</td>
           <td><hr /></td>
         </tr>
       </table>

@@ -1,0 +1,79 @@
+@import "fonts";
+
+#settings {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+
+  input {
+    height: 53px;
+    border: 2px solid #C9C9C9;
+    border-radius: 3px;
+    max-width: 404px;
+    font-family: $lato;
+    font-weight: $lato-light;
+    color: #4A4A4A;
+    font-size: 24px;
+    padding-left: 15px;
+  }
+
+  .account-container {
+    display: flex;
+    flex-direction: column;
+
+    .email, .new-password, .current-password {
+      font-family: $lato;
+      font-weight: $lato-light;
+      font-size: 24px;
+      color: #4A4A4A;
+      margin-bottom: 17px;
+    }
+
+    .new-password, .current-password {
+      margin-top: 30px;
+    }
+
+    .btn {
+      background: #4A90E2;
+      border-radius: 3px;
+      border: 2px solid #4A90E2;
+      height: 53px;
+      font-family: $lato;
+      font-weight: $lato-normal;
+      font-size: 24px;
+      color: #FFFFFF;
+      line-height: 29px;
+      max-width: 423px;
+      margin-top: 35px;
+    }
+  }
+
+  h1 {
+    font-family: $lato;
+    font-weight: $lato-normal;
+    font-size: 28px;
+    color: #4A4A4A;
+  }
+
+  .label {
+    font-family: $lato;
+    font-weight: $lato-normal;
+    font-size: 20px;
+    color: #4A4A4A;
+    line-height: 27px;
+    text-decoration: none;
+  }
+  
+  .blue { 
+    color: #4A90E2;
+  }
+
+  
+  .line {
+    /* Line: */
+    margin-top: 20px;
+    margin-left: 70px;
+    margin-right: 70px;
+    border-left: 1px solid #979797;
+  }
+}

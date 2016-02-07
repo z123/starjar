@@ -8,11 +8,32 @@
 
 {% block body %}
   {{ super() }}
-  <div id="settings">
-    <h1>Settings</h1>
-      <div class="email-container">
-      <div class="email">Email</div>
-      <button class="btn">Update Email</button>
+  <div class="content" id="settings">
+    <div class="sidebar">
+      <h1>Settings</h1>
+      {% if settings == 'account' %}
+        <div><a class="blue label" href="{{ url_for('user.account_settings') }}">Account</a></div>
+        <div><a class="label" href="{{ url_for('user.subscription_settings') }}">Subscription</a></div>
+      {% else %}
+        <div><a class="label" href="{{ url_for('user.account_settings') }}">Account</a></div>
+        <div><a class="blue label" href="{{ url_for('user.subscription_settings') }}">Subscription</a></div>
+      {% endif %}
     </div>
+    <div class="line"></div>
+    {% if settings == 'account' %}
+      <form class="account-container" action="{{ url_for('user.account_settings') }}" method="post">
+        <h1>Edit your account Information</h1>
+        <div class="email">Email:</div>
+        {{ form.email(value=current_user.email) }}
+        <div class="new-password">New Password (only if you want to change your password):</div>
+        {{ form.new_password() }}
+        <div class="current-password">Current Password (required to make changes):</div>
+        {{ form.current_password() }}
+        {{ form.hidden_tag() }}
+        <button class="btn">Update Account</button>
+      </form>
+    {% else %}
+        <h1>Cancel your subscription?</h1>
+    {% endif %}
   </div>
 {% endblock %}

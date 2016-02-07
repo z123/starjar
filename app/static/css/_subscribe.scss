@@ -5,33 +5,39 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  left: 0;
+  padding-top: 20px;
+
+  h1 {
+    font-family: $lato;
+    font-weight: $lato-light;
+    color: #4A4A4A;
+    text-align: center;
+  }
+
 }
 
 #payment-forms {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 418px;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.50);
-  border-radius: 3px;
-  margin-top: 68px;
-  margin-bottom: 68px;
+  align-content: space-between;
+  background: #F3F5F7;
+  border: 1px solid #979797;
+  width: 540px;
+  margin-top: 20px;
+  padding-bottom: 30px;
 
-  h1 {
-    font-family: $lato;
-    font-weight: $lato-normal;
-    margin-top: 28px;
-    margin-bottom: 0px;
-    color: #4A4A4A
+
+  h2 {
+    font-family: $open-sans;
+    font-weight: $open-sans-normal;
+    color: #4A4A4A;
+    text-align: center;
   }
  
   #credit-card-checkout {
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    width: 300px;
 
     ::-webkit-input-placeholder {
       font-family: $lato;
@@ -42,7 +48,6 @@
     }
     
     input {
-      width: 286px;
       height: 22px;
       background: #FFFFFF;
       border: 2px solid #C9C9C9;
@@ -80,6 +85,5 @@
   }
 
   #paypal-checkout {
-    margin-bottom: 30px;
   }
 }

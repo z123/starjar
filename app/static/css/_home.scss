@@ -29,6 +29,10 @@
   padding-top: 36px;
   padding-bottom: 106px;
 
+  a {
+    text-decoration: none;
+  }
+
   .container {
     display: flex;
     flex-direction: row;
@@ -208,6 +212,10 @@
     font-size: 36px;
     color: #4A4A4A;
     text-align: center;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .container {

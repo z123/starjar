@@ -16,7 +16,7 @@
         <h2>Strategy Jar creates advanced investing strategies that out perform
           <br>the market.</h2>
         <h2>Beat the market for only $10 / month.</h2>
-        <a class="btn">Get Started  <i class="fa fa-arrow-right"></i></a>
+        <a href="{{ url_for('user.signup') }}" class="btn">Get Started  <i class="fa fa-arrow-right"></i></a>
       </div>
       <div class="right">
         <img src="../static/img/test.png" alt="chart">
@@ -84,7 +84,7 @@
         <li>Using an automated strategy keeps your emotions out of the
         market. Just follow the strategy and you will win. We have hunderds of investors already using our strategy.</li>
       </ul>
-      <a class="btn">Subscribe Now<i class="fa fa-arrow-right"></i></a>
+      <a href="{{ url_for('user.signup') }}" class="btn">Subscribe Now<i class="fa fa-arrow-right"></i></a>
     </div>
   </div>
 {% endblock %}

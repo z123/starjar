@@ -17,6 +17,21 @@
     padding-left: 15px;
   }
 
+  .subscription-container {
+    .btn {
+      background: #ED4F32;
+      border-radius: 3px;
+      border: 2px solid #ED4F32;
+      height: 53px;
+      font-family: $lato;
+      font-weight: $lato-normal;
+      font-size: 24px;
+      color: #FFFFFF;
+      line-height: 29px;
+      max-width: 423px;
+    }
+  }
+
   .account-container {
     display: flex;
     flex-direction: column;

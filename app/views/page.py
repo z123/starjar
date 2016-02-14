@@ -5,7 +5,7 @@ page = Blueprint('page', __name__)
 
 @page.route('/')
 def home():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return redirect(url_for('user.subscriptions'))
     return render_template('home.html')
 

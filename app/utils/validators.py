@@ -1,4 +1,5 @@
 from wtforms.validators import ValidationError
+from flask_login import current_user
 
 class Unique(object):
     def __init__(self, column, message="This element already exists."):
@@ -8,5 +9,5 @@ class Unique(object):
 
     def __call__(self, form, field):
         check = self.model.query.filter(self.column == field.data).first()
-        if check:
+        if check and current_user.email != field.data:
             raise ValidationError(self.message)

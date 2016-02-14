@@ -10,7 +10,11 @@ class LoginForm(Form):
     password = PasswordField('Password', [Length(0, 128)])
 
 class UpdateAccountForm(Form):
-    email = TextField('Email', [Length(0, 64)])
+    email = TextField('Email', [DataRequired(message="Email address required"),
+                                Email(message="Not a valid email address"),
+                                Length(max=128, message="The email address must be under 128 \
+                                                        characters"),
+                                Unique(User.email, message="That email is already in use")])
     new_password = PasswordField('Password', [Length(0, 128)])
     current_password = PasswordField('Password', [Length(0, 128)])
 

@@ -6,7 +6,7 @@
     <a class="logo" href="{{ url_for('page.home') }}">Strategy Jar</a>
     <!--TODO: Fix this anchor tag-->
   </div>
-  {% if current_user.is_authenticated() %}
+  {% if current_user.is_authenticated %}
     <div class="right">
       <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
       <!--<a class="item" href="{{ url_for('page.blog') }}">Blog</a>-->
@@ -24,7 +24,7 @@
 </div>
 {% endblock %}
 {% block footer %}
-{% if not current_user.is_authenticated() %}
+{% if not current_user.is_authenticated %}
   <div class="footer">
     <div class="content">
       <a class="logo" href="{{ url_for('page.home') }}">Strategy Jar</a>

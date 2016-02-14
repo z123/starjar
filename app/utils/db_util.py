@@ -14,10 +14,10 @@ def create_admin():
 
 def create_strategies():
     params = {
-        'name': "The banana sunde",
+        'name': "Standard strategy",
         'description': "This strategy rocks",
         'quantopian_url': "http://www.quantopian.com",
-        'plan_id': "the-banana-sunde"
+        'plan_id': "standard-plan"
     }
 
     return Strategy(**params).save()

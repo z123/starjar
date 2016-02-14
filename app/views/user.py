@@ -17,7 +17,7 @@ user = Blueprint('user', __name__)
 
 @user.route('/login', methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return redirect(url_for('user.subscriptions'))
 
     form = LoginForm()
@@ -110,10 +110,19 @@ def password_reset(token):
 def account_settings():
     form = UpdateAccountForm()
     if form.validate_on_submit():
-        pass
+        if current_user.is_correct_password(form.current_password.data):
+            current_user.email = form.email.data
+            if len(form.new_password.data):
+                current_user.password = form.new_password.data
+            flash("Account settings updated.")
+        else:
+            flash("Incorrect password.", 'error')
+    elif len(form.errors):
+        flash(form.errors.values()[0][0], 'error')
+
     return render_template('user/settings.html', form=form, settings='account')
 
-@user.route('/settings/subscription', methods=['GET'])
+@user.route('/settings/subscription', methods=['GET', 'POST'])
 def subscription_settings():
     return render_template('user/settings.html', settings='subscription')
 

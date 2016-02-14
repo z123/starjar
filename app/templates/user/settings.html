@@ -35,6 +35,7 @@
     {% else %}
       <form class="subscription-container" action="{{ url_for('user.subscription_settings') }}" method="post">
         <h1>Cancel your subscription?</h1>
+        {{ form.hidden_tag() }}
         <button onclick="return confirm('Are you sure you want to cancel?')" class="btn">Cancel</button>
       </form>
     {% endif %}

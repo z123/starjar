@@ -93,3 +93,7 @@ class Subscription(ResourceMixin, db.Model):
         """ DEPERECIATED FUNCTION PLEASE USE active field of subscription"""
         return self.active
 
+    def cancel(self):
+        result = braintree.Subscription.cancel(self.subscription_id)
+        return result
+

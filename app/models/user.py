@@ -42,8 +42,20 @@ class User(UserMixin, ResourceMixin, db.Model):
     def is_subscribed(self, plan_id):
         plans = filter(lambda subscription: subscription.plan_id == plan_id,
                       self.subscriptions)
-        subscribed = len(plans) and plans[-1].is_active()
+        subscribed = len(plans) and plans[0].is_active()
 
         return subscribed
+
+    def cancel(self, plan_id):
+        plans = filter(lambda subscription: subscription.plan_id == plan_id,
+                      self.subscriptions)
+        subscribed = len(plans) and plans[0].is_active()
+
+        if subscribed: 
+            return plans[0].cancel().is_success
+        else:
+            return False
+
+
 
 

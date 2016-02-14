@@ -15,9 +15,10 @@ def braintree_event():
     subscription_id = webhook_notification.subscription.id
     subscription = Subscription.query.filter_by(subscription_id=subscription_id).first()
 
-    if webhook_notification.kind == braintree.WebhookNotification.Kind.SubscriptionChargedSuccessfully:
+    if webhook_notification.kind == braintree.WebhookNotification.Kind.SubscriptionWentActive:
         subscription.active = True
-    elif webhook_notification.kind == braintree.WebhookNotification.Kind.SubscriptionCanceled:
+    elif webhook_notification.kind == braintree.WebhookNotification.Kind.SubscriptionExpired:
         subscription.active = False
+    subscription.save()
 
     return Response(status=200)

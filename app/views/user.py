@@ -9,7 +9,7 @@ from flask import (
 from flask_login import current_user, login_user, login_required, logout_user
 from app import mail
 from app.models.user import User
-from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm, UpdateAccountForm 
+from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm, UpdateAccountForm, EmptyForm
 from app.utils.security import ts
 from flask_mail import Message
 
@@ -114,6 +114,7 @@ def account_settings():
             current_user.email = form.email.data
             if len(form.new_password.data):
                 current_user.password = form.new_password.data
+            current_user.save()
             flash("Account settings updated.")
         else:
             flash("Incorrect password.", 'error')
@@ -124,6 +125,17 @@ def account_settings():
 
 @user.route('/settings/subscription', methods=['GET', 'POST'])
 def subscription_settings():
-    return render_template('user/settings.html', settings='subscription')
+    form = EmptyForm()
+    if form.validate_on_submit():
+        #TODO: Put this plan in a constant somewhere.
+        if current_user.cancel('standard-plan'):
+            flash("You have been unsubscribed.")
+        else:
+            flash("You have no subscriptions.")
+
+    elif len(form.errors):
+        flash(form.errors.values()[0][0], 'error')
+
+    return render_template('user/settings.html', form=form, settings='subscription')
 
 

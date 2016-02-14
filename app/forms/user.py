@@ -37,3 +37,5 @@ class PasswordForm(Form):
                                           Length(max=128, message="Password must be under 128 \
                                                                   characters")])
 
+class EmptyForm(Form):
+    pass

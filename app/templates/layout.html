@@ -8,6 +8,7 @@
   </div>
   {% if current_user.is_authenticated %}
     <div class="right">
+      <a class="item" href="{{ url_for('user.subscription') }}">Subscription</a>
       <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
       <!--<a class="item" href="{{ url_for('page.blog') }}">Blog</a>-->
       <a class="item" href="{{ url_for('user.account_settings') }}">Settings</a>

@@ -46,6 +46,7 @@ class User(UserMixin, ResourceMixin, db.Model):
 
         return subscribed
 
+    #TODO: Should be renamed to cancel_plan or cancel_subscription
     def cancel(self, plan_id):
         plans = filter(lambda subscription: subscription.plan_id == plan_id,
                       self.subscriptions)

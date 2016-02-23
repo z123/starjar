@@ -18,7 +18,7 @@ user = Blueprint('user', __name__)
 @user.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('user.subscriptions'))
+        return redirect(url_for('user.subscription'))
 
     form = LoginForm()
 
@@ -27,11 +27,7 @@ def login():
 
         if u and u.is_correct_password(form.password.data):
             login_user(u)
-            plan_id = 'standard-plan'
-            if current_user.is_subscribed(plan_id):
-                return redirect(url_for('user.subscriptions'))
-            else:
-                return redirect(url_for('billing.subscribe'))
+            return redirect(url_for('user.subscription'))
         else:
             flash('Invalid email or password', 'error')
 
@@ -50,7 +46,7 @@ def signup():
         u.save()
 
         if login_user(u):
-            return redirect(url_for('user.subscriptions'))
+            return redirect(url_for('user.subscription'))
     elif len(form.errors):
         flash(form.errors.values()[0][0], 'error')
 
@@ -62,10 +58,19 @@ def logout():
     logout_user()
     return redirect(url_for('page.home'))
 
-@user.route('/subscriptions')
+@user.route('/subscription')
 @login_required
-def subscriptions():
-    return render_template('user/subscriptions.html', subscriptions=current_user.subscriptions)
+def subscription():
+    plan_id = 'standard-plan'
+    if current_user.is_subscribed(plan_id):
+        return render_template('user/subscription.html')
+    else:
+        return redirect(url_for('billing.subscribe'))
+
+# @user.route('/subscriptions')
+# @login_required
+# def subscriptions():
+    # return render_template('user/subscriptions.html', subscriptions=current_user.subscriptions)
 
 @user.route('/forgot_password', methods=['GET', 'POST'])
 def forgot_password():

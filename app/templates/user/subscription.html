@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+  {{ super() }}
+{% endblock %}
+
+{% block title %}starjar{% endblock %}
+
+{% block body %}
+  {{ super() }}
+  <div class="content" id="holdings">
+    <h1>Strategy Jar's Current Month Holdings - March 2016</h1>
+    <div class="column">
+      <div class="left">
+        <h2>Ticker</h2>
+        <div class="row">TLT - iShares 20+ Year Treasury Bond</div>
+        <div class="row">IEF - iShares 7-10 Year Treasury Bond</div>
+      </div>
+      <div class="right">
+        <h2>Allocation</h2>
+        <div class="row">50 %</div>
+        <div class="row">50 %</div>
+      </div>
+    </div>
+    <div class="tips">
+      <div>* Tip 1: If a stock you hold from the previous month does not appear
+        on this list sell it. </div>
+      <div>* Tip 2: To maximize profit, sell and buy on the first trading
+        day of every month.</div>
+    </div>
+  </div>
+{% endblock %}

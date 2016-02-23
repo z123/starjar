@@ -25,8 +25,7 @@ def subscribe():
     # Don't allow user to resubscribe if they already subscribed.
     if current_user.is_subscribed(plan_id):
         #flash("You area already subscribed to this strategy")
-        return redirect(url_for('strategy.strategy_details',
-                        strategy_name=plan_id))
+        return redirect(url_for('user.subscription'))
 
     form = PaymentForm(plan_id=plan_id)
     if form.validate_on_submit():
@@ -37,7 +36,8 @@ def subscribe():
         subscription = Subscription()
         created = subscription.create(current_user, plan_id, nonce)
         if created.is_success:
-            return redirect(url_for('billing.confirmation', plan_id=plan_id))
+            flash("Thank you for subscribing.")
+            return redirect(url_for('user.subscription'))
         else:
             errors = created.errors.deep_errors
             # Filters out wierd errors, look up errors if curious

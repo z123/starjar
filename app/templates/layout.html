@@ -3,7 +3,7 @@
 {% block header %}
 <div class="content navbar">
   <div class="left">
-    <a class="logo" href="{{ url_for('page.home') }}">AlphaOne</a>
+    <a class="logo" href="{{ url_for('page.home') }}">InvestKing</a>
     <!--TODO: Fix this anchor tag-->
   </div>
   {% if current_user.is_authenticated %}
@@ -28,11 +28,11 @@
 {% if not current_user.is_authenticated %}
   <div class="footer">
     <div class="content">
-      <a class="logo" href="{{ url_for('page.home') }}">Strategy Jar</a>
+      <a class="logo" href="{{ url_for('page.home') }}">InvestKing</a>
       <a class="item" href="{{ url_for('page.about') }}">About Us</a>
       <a class="item" href="{{ url_for('page.faq') }}">FAQ</a>
       <!--<a class="item" href="{{ url_for('page.blog') }}">Blog</a>-->
-      <a class="item" href="#">Contact Us</a>
+      <a class="item" href="mailto:hello@starjar.com">Contact Us</a>
     </div>
   </div>
 {% endif %}

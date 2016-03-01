@@ -112,6 +112,7 @@ def password_reset(token):
     return render_template('user/password_reset.html', form=form, token=token)
 
 @user.route('/settings/account', methods=['GET', 'POST'])
+@login_required
 def account_settings():
     form = UpdateAccountForm()
     if form.validate_on_submit():
@@ -129,6 +130,7 @@ def account_settings():
     return render_template('user/settings.html', form=form, settings='account')
 
 @user.route('/settings/subscription', methods=['GET', 'POST'])
+@login_required
 def subscription_settings():
     form = EmptyForm()
     if form.validate_on_submit():

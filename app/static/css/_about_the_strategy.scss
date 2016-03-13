@@ -60,4 +60,28 @@
 
   }
 
+	.monthly.returns {
+		width: 982px;
+		h3 {
+			margin-top: 30px;
+			text-align: center;
+			line-height: 40px;
+			font-family: $open-sans;
+			font-weight: $open-sans-bold;
+		}
+		td, th {
+			width: 4rem;
+			height: 2rem;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+		th {
+			background: #eee;
+			border-color: white;
+		}
+		body {
+			padding: 1rem;
+		}
+	}
+
 }

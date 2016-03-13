@@ -1,0 +1,63 @@
+@import "fonts";
+
+#about-the-strategy {
+  margin-top: 40px;
+  padding-bottom: 60px;
+  font-family: $open-sans;
+
+  h1 {
+    font-size: 36px;
+    font-weight: $open-sans-normal;
+    margin-bottom: 40px;
+    color: #444;
+  }
+
+  h2 {
+    font-weight: $open-sans-normal;
+  }
+
+  .overview {
+    font-weight: $open-sans-normal;
+    color: #444;
+  }
+
+  p {
+    margin-top: 40px;
+  }
+
+  img {
+    margin-top: 20px;
+  }
+
+  .statistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+		width: 800px;
+
+		.table.header {
+			margin-top: 20px;
+			font-family: $open-sans;
+			font-weight: $open-sans-bold;
+			font-size: 18px;
+		}
+
+		.dates {
+			margin-bottom: 25px;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 0.25rem;
+			text-align: left;
+			border: 1px solid #ccc;
+		}
+		th {
+			background: #eee;
+		}
+
+  }
+
+}

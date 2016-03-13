@@ -13,6 +13,10 @@ def home():
 def about():
     return render_template('about.html')
 
+@page.route('/about-the-strategy')
+def about_the_strategy():
+    return render_template('strategy/about_the_strategy.html')
+
 @page.route('/faq')
 def faq():
     return render_template('faq.html')

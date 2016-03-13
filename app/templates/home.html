@@ -4,7 +4,7 @@
   {{ super() }}
 {% endblock %}
 
-{% block title %}starjar{% endblock %}
+{% block title %}EquityBuilder{% endblock %}
 
 {% block body %}
   {{ super() }}
@@ -12,14 +12,14 @@
   <div id="investing-made-simple">
     <div class="content container">
       <div class="left">
-        <h1>Invest like a king.</h1>
-        <h2>Strategy Jar creates advanced investing strategies that out perform
+        <h1>Investing Made Easier.</h1>
+        <h2>EquityBuilder creates advanced investing strategies that are safe and outperform 
           <br>the market.</h2>
         <h2>Beat the market for only <strong>$10 / month.</strong></h2>
         <a href="{{ url_for('user.signup') }}" class="btn">Get Started  <i class="fa fa-arrow-right"></i></a>
       </div>
       <div class="right">
-        <img src="../static/img/test.png" alt="chart">
+        <img src="/static/img/chart.png" alt="chart">
       </div>
     </div>
   </div>
@@ -27,31 +27,32 @@
   <div id="the-strategy">
     <div>
       <div class="content container">
-        <h1>The Strategy</h1>
+        <h1>The Investment Strategy</h1>
         <div class="stats">
           <div class="annual-return">
-            <div class="stat">12 %</div>
+            <div class="stat">11 %</div>
             <div class="stat-label">Annual Return</div>
             <div class="stat-description">Over the last 10 years the strategy on
-              average has returned 12 % every year. This is the return you can
-              expect from this strategy. The average investor only returns 7 % per year.</div>
+              average has returned 11 % every year. This is the return you can
+              expect from us. The average investor only returns 7 % per year.</div>
           </div>
           <div class="max-loss">
-            <div class="stat">13 %</div>
+            <div class="stat">14 %</div>
             <div class="stat-label">Max Loss</div>
             <div class="stat-description">This is the max amount our strategy has ever lost,
-              even through 2008 one of the worst financial crisis in US history. 
-              To put this into perspective the average investor lost 50 % of there portfolio
+              even through 2008, one of the worst financial crisis in US history. 
+              To put this into perspective the average investor lost 55 % of there portfolio
               in 2008.</div>
           </div>
           <div class="total-return">
-            <div class="stat">230 %</div>
+            <div class="stat">220 %</div>
             <div class="stat-label">Total Return</div>
-            <div class="stat-description">Over the last 10 years the strategy has returned
-              a total of 230 % that means you would have tripled your net worth.
+            <div class="stat-description">Over the last 11 years the strategy has returned
+              a total of 220 % that means you would have tripled your net worth.
               The average investor returned only 100 % during this time period.</div>
           </div>
         </div>
+        <a href="{{ url_for('page.about_the_strategy') }}" class="btn">Learn more <i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
   </div>

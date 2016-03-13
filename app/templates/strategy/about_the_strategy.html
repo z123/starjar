@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+  {{ super() }}
+{% endblock %}
+
+{% block title %}About the Strategy{% endblock %}
+
+{% block body %}
+  {{ super() }}
+  <div class="content" id="about-the-strategy">
+    <h1>About the strategy</h1>
+    <div class="overview">
+      <h2>Overview</h2>
+      <ul>
+        <li>The strategy trades between 9 sector etfs and 2 bond etfs.</li>
+        <li>Annual return of 11%.</li>
+        <li>Max drawdown of only 13%.</li>
+        <li>Is always invested in bonds, so your funds will be safe even if the market has a serious downturn.</li>
+        <li>Trades monthly, so following the strategy is very simple.</li>
+      </ul>
+    </div>
+    <p class="details">
+      Our strategy uses a combination of relative momentum, mean reversion, along with current market volitality
+      to calculate what positions to buy. Subscribers to our strategy will recieve positions on the last trading
+      day of the month, and should place the trades at the market open of the following trading day.
+    </p>
+    <img src="/static/img/strategy_performance.png" alt="strategy performance">
+    <p class="details">
+      The graph above shows the performance of our strategy compared to the just holding S&P 500 (the S&P 500 is the top 
+      500 companies currently on the US market). We can see that our strategy not only performs better but also has better
+      downside protection.
+    </p>
+    <div class="statistics">
+      <div class="table header">Summary Statistics</div>
+      <div class="dates">01/2005 to 02/2016</div>
+			<table>
+				<tr>
+					<th>Statistic</th>
+					<th>Our Strategy</th>		
+					<th>S&P 500</th>
+				</tr>
+				<tr>
+					<td>Annualized Return</td>
+					<td>11%</td>		
+					<td>7%</td>
+				</tr>
+				<tr>
+					<td>Sharpe Ratio</td>
+					<td>1.07</td>		
+					<td>0.42</td>
+				</tr>
+				<tr>
+					<td>Max Drawdown</td>
+					<td>14%</td>		
+					<td>55%</td>
+				</tr>
+				<tr>
+					<td>% of Winning Months</td>
+					<td>64%</td>		
+					<td>59%</td>
+				</tr>
+				<tr>
+					<td>Alpha</td>
+					<td>.10</td>		
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>Beta</td>
+					<td>.09</td>		
+					<td>1.0</td>
+				</tr>
+			</table>
+    </div>
+		<p class="details">
+			Across all metrics, the strategy has been a significant improvement over buying and holding the S&P 500,
+		  but most importantly, the strategy has done very well managing portfolio drawdowns (losses).
+		</p>
+    <img src="/static/img/drawdown_plot.png" alt="drawdown plot">
+  </div>
+{% endblock %}

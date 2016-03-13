@@ -12,6 +12,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="/static/img/favicon.png">
     <!--<link rel="stylesheet" href="//oss.maxcdn.com/semantic-ui/2.1.7/components/dropdown.min.css">-->
     <!--<script src="//oss.maxcdn.com/semantic-ui/2.1.7/components/dropdown.min.js"></script>-->
 
@@ -22,12 +23,12 @@
 
     {% block stylesheet %}
       <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layout.css') }}">-->
-      <link rel="stylesheet" type="text/css" href="//127.0.0.1:3000/css/app.css">
+      <link rel="stylesheet" type="text/css" href="/static/public/css/app.css">
       <!--<link rel="stylesheet" type="text/css" href="//feafCiKnag:NazHuchyir@ea010912.ngrok.io/css/app.css">-->
     {% endblock %}
 
     {% block script %}
-      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <!--<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>-->
     {% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
@@ -45,5 +46,5 @@
 
     {% block footer %}{% endblock %}
   </body>
-  <script src="//127.0.0.1:3000/js/app.js"></script>
+  <!--<script src="//127.0.0.1:3000/js/app.js"></script>-->
 </html>

@@ -4,7 +4,7 @@ var sass = require('gulp-sass');
 var config = {
   bootstrapDir: './node_modules/bootstrap-sass',
   bootswatchDir: './node_modules/bootswatch',
-  publicDir: './public'
+  publicDir: './app/static/public'
 };
 
 gulp.task('css', function() {

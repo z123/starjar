@@ -136,7 +136,7 @@ def subscription_settings():
     if form.validate_on_submit():
         #TODO: Put this plan in a constant somewhere.
         if current_user.cancel('standard-plan'):
-            flash("You have been unsubscribed.")
+            flash("Your subscription has been canceled.")
         else:
             flash("You have no subscriptions.")
 

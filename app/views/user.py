@@ -62,7 +62,7 @@ def logout():
 @login_required
 def subscription():
     plan_id = 'standard-plan'
-    if current_user.is_subscribed(plan_id):
+    if current_user.is_subscribed(plan_id) or current_user.role == 'admin':
         return render_template('user/subscription.html')
     else:
         return redirect(url_for('billing.subscribe'))
@@ -138,7 +138,7 @@ def subscription_settings():
         if current_user.cancel('standard-plan'):
             flash("Your subscription has been canceled.")
         else:
-            flash("You have no subscriptions.")
+            flash("You currently don't have a subscription.")
 
     elif len(form.errors):
         flash(form.errors.values()[0][0], 'error')

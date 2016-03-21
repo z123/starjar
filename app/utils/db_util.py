@@ -6,8 +6,8 @@ from app.models.user import User
 def create_admin():
     params = {
         'role': 'admin',
-        'email': 'admin@starjar.com',
-        'password': 'password'
+        'email': 'support@equitybuilder.io',
+        'password': 'bibirkobr'
     }
 
     return User(**params).save()

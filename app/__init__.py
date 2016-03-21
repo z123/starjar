@@ -44,10 +44,10 @@ app.register_blueprint(billing)
 app.register_blueprint(webhooks)
 
 # Models
-from app.models.user import User
-from app.models.strategy import Return
-from app.models.security import Security
+# TODO: Delete models not used 
 from app.models.strategy import Strategy
+from app.models.subscription import Subscription
+from app.models.user import User
 
 # Filters
 from app.utils import filters

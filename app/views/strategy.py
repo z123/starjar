@@ -1,14 +1,14 @@
-from app.models.strategy import Strategy
+# from app.models.strategy import Strategy
 
 from flask import Blueprint, render_template
 from flask_login import current_user
 
 strategy = Blueprint('strategy', __name__)
 
-@strategy.route('/strategies')
-def strategies():
-    strats = Strategy.query.all()
-    return render_template('strategy/strategies.html', strats=strats)
+# @strategy.route('/strategies')
+# def strategies():
+    # strats = Strategy.query.all()
+    # return render_template('strategy/strategies.html', strats=strats)
 
 @strategy.route('/strategy/<strategy_name>')
 def strategy_details(strategy_name):

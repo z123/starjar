@@ -15,8 +15,8 @@ def create_admin():
 def create_strategies():
     params = {
         'name': "Standard strategy",
-        'description': "This strategy rocks",
-        'quantopian_url': "http://www.quantopian.com",
+        'description': "",
+        'quantopian_url': "https://www.quantopian.com/algorithms/56d884653e72f1938700082d",
         'plan_id': "standard-plan"
     }
 

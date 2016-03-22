@@ -85,7 +85,7 @@ def forgot_password():
             reset_url = url_for('user.password_reset', token=token, _external=True)
             # TODO: Change email/recover to something else like email/reset_password
             html = render_template('email/recover.html', reset_url=reset_url)
-            msg = Message(subject, [u.email], html=html)
+            msg = Message(subject, [u.email], html=html, sender=("EquityBuilder", "no-reply@equitybuilder.io"))
             mail.send(msg)
         else:
             flash('No user under that email exists.')

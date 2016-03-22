@@ -21,8 +21,8 @@ def about_the_strategy():
 def faq():
     return render_template('faq.html')
 
-@page.route('/blog')
-def blog():
-    return render_template('blog.html')
+# @page.route('/blog')
+# def blog():
+    # return render_template('blog.html')
 
 

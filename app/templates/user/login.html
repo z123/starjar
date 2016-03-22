@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Log in{% endblock %}
+{% block title %}Log In{% endblock %}
 
 {% block body %}
   <div id="login">
     <form action="{{ url_for('user.login') }}" method="post">
-      <h1>Log in to EquityBuilder</h1>
+      <h1>Log In to EquityBuilder</h1>
       {{ form.email(placeholder='Email Address') }}
       {{ form.password(placeholder='Password') }}
       {{ form.hidden_tag() }}

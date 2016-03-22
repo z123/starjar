@@ -7,11 +7,13 @@ from flask import (
     request,
     render_template)
 from flask_login import current_user, login_user, login_required, logout_user
+from app import app
 from app import mail
 from app.models.user import User
 from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm, UpdateAccountForm, EmptyForm
 from app.utils.security import ts
 from flask_mail import Message
+import requests
 
 user = Blueprint('user', __name__)
 
@@ -84,9 +86,17 @@ def forgot_password():
             token = ts.dumps(u.email, salt='recover-key')
             reset_url = url_for('user.password_reset', token=token, _external=True)
             # TODO: Change email/recover to something else like email/reset_password
-            html = render_template('email/recover.html', reset_url=reset_url)
-            msg = Message(subject, [u.email], html=html, sender=("EquityBuilder", "no-reply@equitybuilder.io"))
-            mail.send(msg)
+	    html = render_template('email/recover.html', reset_url=reset_url)
+            # SMTP
+            # msg = Message(subject, [u.email], html=html, sender=("EquityBuilder", "no-reply@equitybuilder.io"))
+            # mail.send(msg)
+            # API
+	    requests.post(app.config.get('MAILGUN_API_BASE_URL'),
+		auth=("api", app.config.get('MAILGUN_API_KEY')),
+		data={"from": "EquityBuilder <no-reply@equitybuilder.io>",
+		      "to": [u.email],
+		      "subject": "Password Reset Requested",
+		      "html": html})
         else:
             flash('No user under that email exists.')
 

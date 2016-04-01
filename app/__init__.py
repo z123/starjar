@@ -7,7 +7,7 @@ app = Flask(__name__, instance_relative_config=True)
 
 app.config.from_object('config.default')
 
-app.config.from_pyfile('config.py')
+app.config.from_pyfile('config.py', silent=True)
 
 bcrypt = Bcrypt(app)
 
@@ -26,6 +26,13 @@ braintree.Configuration.configure(braintree.Environment.Sandbox,
                                   merchant_id=app.config.get('BT_MERCHANT_ID'),
                                   public_key=app.config.get('BT_PUBLIC_KEY'),
                                   private_key=app.config.get('BT_PRIVATE_KEY'))
+
+import paypalrestsdk
+paypalrestsdk.configure({
+    'mode': app.config.get('PAYPAL_MODE'),
+    'client_id': app.config.get('PAYPAL_CLIENT_ID'),
+    'client_secret': app.config.get('PAYPAL_CLIENT_SECRET')
+})
 
 from flask_mail import Mail
 mail = Mail(app)
@@ -51,3 +58,27 @@ from app.models.user import User
 
 # Filters
 from app.utils import filters
+
+from celery import Celery
+
+def make_celery(app):
+    celery = Celery(app.import_name, broker=app.config['CELERY_BROKER_URL'])
+    celery.conf.update(app.config)
+    TaskBase = celery.Task
+    class ContextTask(TaskBase):
+        abstract = True
+        def __call__(self, *args, **kwargs):
+            with app.app_context():
+                return TaskBase.__call__(self, *args, **kwargs)
+    celery.Task = ContextTask
+    return celery
+celery = make_celery(app)
+
+if not app.debug:
+    print(app.debug)
+    import logging
+    from logging import FileHandler
+    file_handler = FileHandler("error_log.txt")
+    file_handler.setLevel(logging.WARNING)
+    app.logger.addHandler(file_handler)
+

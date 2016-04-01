@@ -53,7 +53,7 @@ class User(UserMixin, ResourceMixin, db.Model):
         subscribed = len(plans) and plans[0].is_active()
 
         if subscribed: 
-            return plans[0].cancel().is_success
+            return plans[0].cancel()
         else:
             return False
 

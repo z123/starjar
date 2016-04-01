@@ -8,47 +8,10 @@
   <div id="payment-container">
     <h1><strong>$10 / month</strong> - Subscription to EquityBuilder</h1>
     <div id="payment-forms">
-      <h2>Payment Details</h2>
-      <form id="credit-card-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
-        <input placeholder="Credit Card Number" data-braintree-name="number">
-        <input placeholder="CVV" data-braintree-name="cvv">
-        <input placeholder="Expires MM/YYYY"  data-braintree-name="expiration_date">
-
-        {{ form.hidden_tag() }}
-        <button class="btn" type="submit">Submit Payment</button>
-      </form>
-
-      <table width="60%">
-        <tr>
-          <td><hr /></td>
-          <td style="width:1px; padding: 0 10px; white-space: nowrap;">Or Pay with PayPal</td>
-          <td><hr /></td>
-        </tr>
-      </table>
-
-      <form id="paypal-checkout" method="post" action="{{ url_for('billing.subscribe') }}">
-        {{ form.hidden_tag() }}
-      </form>
+      <h2>Pay through PayPal</h2>
+      <div id="paypal-checkout">
+        <a href="{{ url_for('billing.subscribe_paypal') }}"><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" /></a>
+      </div>
     </div>
   </div>
-
-  <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
-  <script>
-    var clientToken = "{{ token }}";
-
-    braintree.setup(clientToken, "custom", {
-      id: "credit-card-checkout",
-      onError: function (err) {
-        alert(err);
-      }
-    });
-
-    braintree.setup(clientToken, "paypal", {
-      container: "paypal-checkout",
-      onPaymentMethodReceived: function (obj) {
-        document.querySelector('#paypal-checkout').submit();
-      }
-    });
-  </script>
-
 {% endblock %}

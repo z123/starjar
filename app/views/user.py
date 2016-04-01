@@ -12,6 +12,7 @@ from app import mail
 from app.models.user import User
 from app.forms.user import LoginForm, SignupForm, EmailForm, PasswordForm, UpdateAccountForm, EmptyForm
 from app.utils.security import ts
+from app.utils.constants import STANDARD_PLAN_ID
 from flask_mail import Message
 import requests
 
@@ -63,8 +64,7 @@ def logout():
 @user.route('/subscription')
 @login_required
 def subscription():
-    plan_id = 'standard-plan'
-    if current_user.is_subscribed(plan_id) or current_user.role == 'admin':
+    if current_user.is_subscribed(STANDARD_PLAN_ID) or current_user.role == 'admin':
         return render_template('user/subscription.html')
     else:
         return redirect(url_for('billing.subscribe'))
@@ -145,7 +145,7 @@ def subscription_settings():
     form = EmptyForm()
     if form.validate_on_submit():
         #TODO: Put this plan in a constant somewhere.
-        if current_user.cancel('standard-plan'):
+        if current_user.cancel(STANDARD_PLAN_ID):
             flash("Your subscription has been canceled.")
         else:
             flash("You currently don't have a subscription.")

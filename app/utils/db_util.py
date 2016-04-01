@@ -35,7 +35,7 @@ def create_plan():
     with app.app_context():
 	billing_plan = BillingPlan({
 	    "name": "EquityBuilder Subscription",
-	    "description": "EquityBuilder Monthly Subscription",
+            "description": "$10 monthly subscription to EquityBuilder.",
 	    "payment_definitions": [
 		{
 		    "name": "Standard Plan",

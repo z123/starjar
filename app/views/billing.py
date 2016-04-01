@@ -35,7 +35,7 @@ def subscribe_paypal():
 	start_date = datetime.datetime.utcnow() + relativedelta(months=1)
 	billing_agreement = BillingAgreement({
 	    "name": "EquityBuilder Subscription",
-	    "description": "EquityBuilder Subscription",
+            "description": "Price: $10/month",
 	    "start_date": start_date.strftime("%Y-%m-%dT00:00:00Z"),
 	    "plan": {
 		"id": STANDARD_PLAN_ID

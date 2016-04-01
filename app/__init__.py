@@ -75,7 +75,6 @@ def make_celery(app):
 celery = make_celery(app)
 
 if not app.debug:
-    print(app.debug)
     import logging
     from logging import FileHandler
     file_handler = FileHandler("error_log.txt")

@@ -17,10 +17,10 @@ def create_admin():
 def create_strategies():
 
     params = {
-        'name': "Standard Strategy",
+        'name': "Sector Selection",
         'description': "",
         'quantopian_url': "https://www.quantopian.com/algorithms/56d884653e72f1938700082d",
-        'plan_id': create_plan().id
+        'plan_id': 'sector-selection'
     }
 
     return Strategy(**params).save()

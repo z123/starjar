@@ -20,12 +20,12 @@ login_manager.login_view = 'user.login'
 def load_user(userid):
     return User.query.filter(User.id==userid).first()
 
-import braintree
+# import braintree
 
-braintree.Configuration.configure(braintree.Environment.Sandbox,
-                                  merchant_id=app.config.get('BT_MERCHANT_ID'),
-                                  public_key=app.config.get('BT_PUBLIC_KEY'),
-                                  private_key=app.config.get('BT_PRIVATE_KEY'))
+# braintree.Configuration.configure(braintree.Environment.Sandbox,
+                                  # merchant_id=app.config.get('BT_MERCHANT_ID'),
+                                  # public_key=app.config.get('BT_PUBLIC_KEY'),
+                                  # private_key=app.config.get('BT_PRIVATE_KEY'))
 
 import paypalrestsdk
 paypalrestsdk.configure({
@@ -33,6 +33,12 @@ paypalrestsdk.configure({
     'client_id': app.config.get('PAYPAL_CLIENT_ID'),
     'client_secret': app.config.get('PAYPAL_CLIENT_SECRET')
 })
+
+import paypal 
+paypal = paypal.PayPalInterface(API_ENVIRONMENT=app.config.get('PAYPAL_API_ENVIRONMENT'),
+                         API_USERNAME=app.config.get('PAYPAL_API_USERNAME'),
+                         API_PASSWORD=app.config.get('PAYPAL_API_PASSWORD'),
+                         API_SIGNATURE=app.config.get('PAYPAL_API_SIGNATURE'))
 
 from flask_mail import Mail
 mail = Mail(app)

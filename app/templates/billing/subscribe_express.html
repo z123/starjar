@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Subscribe{% endblock %}
+
+{% block body %}
+  {{ super() }}
+
+  <div id="payment-container">
+    <h1><strong>$10 / month</strong> - Subscription to EquityBuilder</h1>
+    <div id="payment-forms">
+      <h2>Pay through PayPal</h2>
+      <div id="paypal-checkout">
+        <a><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" /></a>
+      </div>
+    </div>
+  </div>
+  <script>
+		window.paypalCheckoutReady = function() {
+			paypal.checkout.setup('{{ merchant_id }}', {
+				environment: 'sandbox',
+				button: 'paypal-checkout',
+				click: function () {
+					paypal.checkout.startFlow('{{ token }}');
+				}
+			});
+		}
+  </script>
+	<script src="//www.paypalobjects.com/api/checkout.js" async></script>
+{% endblock %}

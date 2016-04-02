@@ -122,7 +122,7 @@ class Subscription(ResourceMixin, db.Model):
 
     def cancel_paypal(self):
 	billing_agreement = BillingAgreement.find(self.subscription_id)    	
-        cancel_note = {"note": "Canceling subscription"}
+        cancel_note = {"note": "Canceled subscription."}
 	if billing_agreement.cancel(cancel_note):
 	    return True
 	else:

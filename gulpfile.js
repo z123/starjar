@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var cssnano = require('gulp-cssnano');
     
 var config = {
   bootstrapDir: './node_modules/bootstrap-sass',
@@ -10,6 +11,7 @@ var config = {
 gulp.task('css', function() {
   return gulp.src('./app/static/css/app.scss')
   .pipe(sass())
+  .pipe(cssnano())
   .pipe(gulp.dest(config.publicDir + '/css'));
 });
 

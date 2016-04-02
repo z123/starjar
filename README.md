@@ -2,6 +2,14 @@
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
+### Steps to Deploy ###
+1) Log into server
+2) Pull changes from github
+3) Update production instance config
+4) Push static css to server
+5) Migrate database
+6) Restart server
+
 ### What is this repository for? ###
 
 * Quick summary

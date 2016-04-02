@@ -17,7 +17,7 @@
   <script>
 		window.paypalCheckoutReady = function() {
 			paypal.checkout.setup('{{ merchant_id }}', {
-				environment: 'sandbox',
+        environment: '{{ environment }}',
 				button: 'paypal-checkout',
 				click: function () {
 					paypal.checkout.startFlow('{{ token }}');

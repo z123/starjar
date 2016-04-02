@@ -4,7 +4,7 @@
 <html lang="en">
 
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
     <! -- jquery -->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
@@ -13,11 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="/static/img/favicon.png">
-    <!--<link rel="stylesheet" href="//oss.maxcdn.com/semantic-ui/2.1.7/components/dropdown.min.css">-->
-    <!--<script src="//oss.maxcdn.com/semantic-ui/2.1.7/components/dropdown.min.js"></script>-->
 
     <!-- Optional theme -->
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha256-sHwgyDk4CGNYom267UJX364ewnY4Bh55d53pxP5WDug= sha512-mkkeSf+MM3dyMWg3k9hcAttl7IVHe2BA1o/5xKLl4kBaP0bih7Mzz/DBy4y6cNZCHtE2tPgYBYH/KtEjOQYKxA==" crossorigin="anonymous">-->
 
     <!-- Latest compiled and minified JavaScript -->
 		<script>
@@ -31,13 +28,10 @@
 		</script>
 
     {% block stylesheet %}
-      <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layout.css') }}">-->
       <link rel="stylesheet" type="text/css" href="/static/public/css/app.css">
-      <!--<link rel="stylesheet" type="text/css" href="//feafCiKnag:NazHuchyir@ea010912.ngrok.io/css/app.css">-->
     {% endblock %}
 
     {% block script %}
-      <!--<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>-->
     {% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
@@ -55,5 +49,4 @@
 
     {% block footer %}{% endblock %}
   </body>
-  <!--<script src="//127.0.0.1:3000/js/app.js"></script>-->
 </html>

@@ -26,7 +26,7 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        u = User.query.filter_by(email=form.email.data).first()
+        u = User.query.filter_by(email=form.email.data.lower()).first()
 
         if u and u.is_correct_password(form.password.data):
             login_user(u)
@@ -44,7 +44,8 @@ def signup():
         u = User()
 
         form.populate_obj(u)
-        u.password = request.form.get('password')
+        u.email = form.email.data.lower()
+        u.password = form.password.data
 
         u.save()
 

@@ -25,6 +25,7 @@ a {
   line-height: 50px;
   background: #E0E1E2;
   color: #5B5B5B;
+  min-width: 1120px;
   
   .error {
     left: 0;
@@ -171,6 +172,7 @@ body {
 }
 
 .footer {
+  min-width: 1120px;
   position: absolute;
   bottom: 0;
   left: 0;

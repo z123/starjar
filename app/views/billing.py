@@ -166,7 +166,7 @@ def subscribe():
     return render_template('billing/subscribe_express.html',
 			    merchant_id=app.config.get('PAYPAL_MERCHANT_ID'),
 			    token=token,
-			    environment=app.config.get('PAYPAL_API_ENVIRONMENT'))
+			    environment=app.config.get('PAYPAL_API_ENVIRONMENT').lower())
 
 @billing.route('/confirm')
 def confirm():

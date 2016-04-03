@@ -6,6 +6,7 @@
   padding-top: 10px;
 
   .column {
+    width: 100%;
     display: flex;
     flex-direction: row;
   }
@@ -25,14 +26,21 @@
   }
 
   .left {
+    width: 100%;
     padding-right: 70px;
   }
 
+  .right {
+    width: 100%;
+  }
+
   .column {
+    width: 100%;
     padding-bottom: 40px;
   }
 
   .row {
+    width: 100%;
     font-family: $open-sans;
     font-weight: $open-sans-normal;
     font-size: 18px;

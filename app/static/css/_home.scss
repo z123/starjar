@@ -10,6 +10,7 @@
 }
 
 @mixin section() {
+  min-width: 1120px;
   .btn {
     font-family: $lato;
     font-weight: $lato-bold;
